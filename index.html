@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Isaac Vergara Mejia — Fitness Coach & Wellness Expert based in Hamburg, Germany. Offering personal training and life coaching to help you transform your body and improve your quality of life." />
+  <title>Isaac Vergara Mejia | Fitness Coach & Wellness</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --clr-bg:       hsl(36, 20%, 97%);
+      --clr-surface:  hsl(36, 18%, 94%);
+      --clr-card:     hsl(0, 0%, 100%);
+      --clr-accent:   hsl(24, 56%, 38%);
+      --clr-accent-l: hsl(24, 56%, 92%);
+      --clr-text:     hsl(24, 10%, 18%);
+      --clr-muted:    hsl(24, 8%, 52%);
+      --clr-border:   hsl(36, 15%, 88%);
+      --radius-lg:    1.25rem;
+      --radius-xl:    2rem;
+      --shadow-soft:  0 4px 24px hsl(24 20% 12% / 0.07);
+      --shadow-card:  0 2px 12px hsl(24 20% 12% / 0.06);
+      --transition:   0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--clr-bg);
+      color: var(--clr-text);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── Layout ── */
+    .page-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.75rem;
+      padding: 3.5rem 2.5rem 3rem;
+      background: var(--clr-card);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* subtle texture overlay */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 10%, hsl(24 56% 80% / 0.18) 0%, transparent 60%),
+        radial-gradient(circle at 80% 90%, hsl(36 50% 75% / 0.14) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    /* ── Avatar ── */
+    .avatar-wrap {
+      position: relative;
+      width: 158px;
+      height: 158px;
+      flex-shrink: 0;
+    }
+
+    .avatar-ring {
+      position: absolute;
+      inset: -5px;
+      border-radius: 50%;
+      border: 2.5px solid var(--clr-accent);
+      opacity: 0.45;
+      animation: spin-ring 10s linear infinite;
+    }
+
+    .avatar-ring::after {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 9px;
+      height: 9px;
+      background: var(--clr-accent);
+      border-radius: 50%;
+    }
+
+    @keyframes spin-ring {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    .avatar-img {
+      width: 158px;
+      height: 158px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      border: 4px solid var(--clr-card);
+      box-shadow: 0 8px 32px hsl(24 30% 12% / 0.14);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .avatar-img:hover {
+      transform: scale(1.04);
+      box-shadow: 0 12px 40px hsl(24 30% 12% / 0.22);
+    }
+
+    /* ── Name & Title ── */
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--clr-text);
+    }
+
+    .hero-title {
+      margin-top: 0.4rem;
+      font-size: clamp(0.9rem, 2vw, 1.05rem);
+      font-weight: 400;
+      color: var(--clr-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ── Tag pills ── */
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35em 0.9em;
+      border-radius: 999px;
+      background: var(--clr-accent-l);
+      color: var(--clr-accent);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      border: 1px solid hsl(24 56% 80%);
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .tag:hover { background: hsl(24 56% 86%); transform: translateY(-1px); }
+
+    /* ── Social links ── */
+    .hero-socials {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid var(--clr-border);
+      background: var(--clr-bg);
+      color: var(--clr-muted);
+      text-decoration: none;
+      transition: border-color var(--transition), color var(--transition), background var(--transition), transform var(--transition);
+    }
+
+    .social-btn:hover {
+      border-color: var(--clr-accent);
+      color: var(--clr-accent);
+      background: var(--clr-accent-l);
+      transform: translateY(-2px);
+    }
+
+    .social-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+    /* ── Divider ── */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--clr-border), transparent);
+      margin: 2.5rem 0;
+    }
+
+    /* ── About section ── */
+    .about-section {
+      margin-top: 2rem;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 4px;
+      height: 1.6rem;
+      background: var(--clr-accent);
+      border-radius: 4px;
+    }
+
+    .section-label h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+      font-weight: 600;
+      color: var(--clr-text);
+    }
+
+    .about-card {
+      background: var(--clr-card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      padding: 2.25rem 2.5rem;
+      border: 1px solid var(--clr-border);
+    }
+
+    .about-card p {
+      font-size: 1.025rem;
+      color: hsl(24, 10%, 28%);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+    }
+
+    .about-card p:last-child { margin-bottom: 0; }
+
+    /* ── Languages ── */
+    .lang-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-top: 1.25rem;
+    }
+
+    .lang-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--clr-card);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      padding: 0.85rem 1.25rem;
+      box-shadow: var(--shadow-card);
+      flex: 1 1 180px;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .lang-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px hsl(24 20% 12% / 0.09);
+    }
+
+    .lang-flag { font-size: 1.5rem; line-height: 1; }
+
+    .lang-info { display: flex; flex-direction: column; }
+
+    .lang-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--clr-text);
+    }
+
+    .lang-level {
+      font-size: 0.78rem;
+      color: var(--clr-muted);
+      margin-top: 0.1rem;
+    }
+
+    /* ── Skills grid ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .skill-card {
+      background: var(--clr-card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      padding: 1.5rem 1.75rem;
+      border: 1px solid var(--clr-border);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px hsl(24 20% 12% / 0.10);
+    }
+
+    .skill-icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .skill-name {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--clr-text);
+      margin-bottom: 0.3rem;
+    }
+
+    .skill-desc {
+      font-size: 0.875rem;
+      color: var(--clr-muted);
+      line-height: 1.6;
+    }
+
+    /* ── Contact CTA ── */
+    .cta-section {
+      margin-top: 2rem;
+      background: var(--clr-card);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    .cta-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--clr-text);
+      margin-bottom: 0.25rem;
+    }
+
+    .cta-text p {
+      font-size: 0.9rem;
+      color: var(--clr-muted);
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7em 1.6em;
+      background: var(--clr-accent);
+      color: hsl(36, 20%, 97%);
+      border: none;
+      border-radius: 999px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      box-shadow: 0 4px 14px hsl(24 56% 38% / 0.30);
+    }
+
+    .cta-btn:hover {
+      background: hsl(24, 56%, 32%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px hsl(24 56% 38% / 0.38);
+    }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--clr-muted);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 580px) {
+      .hero { padding: 2.5rem 1.5rem 2rem; }
+      .about-card { padding: 1.75rem 1.5rem; }
+      .cta-section { padding: 1.75rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-wrapper" role="main">
+
+    <!-- ── Hero ── -->
+    <header class="hero" id="hero">
+      <div class="avatar-wrap">
+        <span class="avatar-ring" aria-hidden="true"></span>
+        <img
+          class="avatar-img"
+          src="Isaacweb.jpeg"
+          alt="Profile photo of Isaac Vergara Mejia"
+          width="158"
+          height="158"
+        />
+      </div>
+
+      <div>
+        <h1 class="hero-name">Isaac Vergara Mejia</h1>
+        <p class="hero-title">Fitness Coach &amp; Wellness Expert · Hamburg, Germany</p>
+      </div>
+
+      <div class="hero-tags" aria-label="Specialties">
+        <span class="tag">✦ Fitness Coaching</span>
+        <span class="tag">✦ Personal Training</span>
+        <span class="tag">✦ Life Coaching</span>
+        <span class="tag">✦ Wellness</span>
+      </div>
+
+      <nav class="hero-socials" aria-label="Social links">
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/isaac-vergara-mejia-97e12e19e" target="_blank" rel="noopener noreferrer" class="social-btn" id="social-linkedin" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.447 20.452H17.21v-5.569c0-1.328-.025-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.982V8.998h3.107v1.566h.044c.433-.82 1.49-1.685 3.068-1.685 3.28 0 3.885 2.159 3.885 4.967v6.606zM5.337 7.433a1.804 1.804 0 1 1 0-3.607 1.804 1.804 0 0 1 0 3.607zm1.605 13.019H3.73V8.998h3.212v11.454zM22.225 0H1.771C.79 0 0 .774 0 1.729v20.542C0 23.228.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:isaac971219@gmail.com" class="social-btn" id="social-email" aria-label="Email address" title="Email">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+        </a>
+      </nav>
+    </header>
+
+    <div class="divider" role="separator"></div>
+
+    <!-- ── About Me ── -->
+    <section class="about-section" aria-labelledby="about-heading" id="about">
+      <div class="section-label">
+        <h2 id="about-heading">About Me</h2>
+      </div>
+
+      <div class="about-card">
+        <p>
+          Hi! I'm <strong>Isaac Vergara Mejia</strong>, a Fitness Coach and Wellness Expert with a background
+          in Economics and an MBA. My mission is to help people transform their bodies, build lasting healthy habits,
+          and significantly improve their quality of life through personalized training and coaching.
+        </p>
+        <p>
+          Based in Hamburg, Germany, I offer one-on-one fitness training, online coaching, and lifestyle
+          programs tailored to each individual's goals — whether you want to lose weight, gain strength,
+          boost your energy, or simply feel better every day. I combine scientific knowledge with a
+          motivational, results-driven approach.
+        </p>
+        <p>
+          I believe that true wellness goes beyond the gym. Discipline, consistency, and the right mindset
+          are the real foundations of a healthy and fulfilling life. If you're ready to take the first step
+          toward a better version of yourself, I'm here to guide you every step of the way.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── Services ── -->
+    <section class="about-section" aria-labelledby="services-heading" id="services" style="margin-top: 2.5rem;">
+      <div class="section-label">
+        <h2 id="services-heading">My Services</h2>
+      </div>
+
+      <div class="skills-grid">
+        <article class="skill-card">
+          <div class="skill-icon" aria-hidden="true">🏋️</div>
+          <p class="skill-name">Personal Training</p>
+          <p class="skill-desc">Customized workout plans designed to match your fitness level, goals, and lifestyle — in person or online.</p>
+        </article>
+
+        <article class="skill-card">
+          <div class="skill-icon" aria-hidden="true">🥗</div>
+          <p class="skill-name">Nutrition Guidance</p>
+          <p class="skill-desc">Practical nutrition strategies to fuel your performance, accelerate results, and build sustainable eating habits.</p>
+        </article>
+
+        <article class="skill-card">
+          <div class="skill-icon" aria-hidden="true">🧠</div>
+          <p class="skill-name">Life Coaching</p>
+          <p class="skill-desc">Mindset, motivation, and goal-setting coaching to help you overcome barriers and stay committed to your journey.</p>
+        </article>
+
+        <article class="skill-card">
+          <div class="skill-icon" aria-hidden="true">📱</div>
+          <p class="skill-name">Online Coaching</p>
+          <p class="skill-desc">Full remote coaching programs with weekly check-ins, progress tracking, and 24/7 support — wherever you are.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ── Languages ── -->
+    <section class="about-section" aria-labelledby="languages-heading" id="languages" style="margin-top: 2.5rem;">
+      <div class="section-label">
+        <h2 id="languages-heading">Languages</h2>
+      </div>
+
+      <div class="lang-grid">
+        <div class="lang-item">
+          <span class="lang-flag" aria-hidden="true">🇩🇪</span>
+          <div class="lang-info">
+            <span class="lang-name">German</span>
+            <span class="lang-level">Professional proficiency</span>
+          </div>
+        </div>
+        <div class="lang-item">
+          <span class="lang-flag" aria-hidden="true">🇬🇧</span>
+          <div class="lang-info">
+            <span class="lang-name">English</span>
+            <span class="lang-level">Full professional proficiency</span>
+          </div>
+        </div>
+        <div class="lang-item">
+          <span class="lang-flag" aria-hidden="true">🇪🇸</span>
+          <div class="lang-info">
+            <span class="lang-name">Spanish</span>
+            <span class="lang-level">Native speaker</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA Contact ── -->
+    <section class="cta-section" aria-labelledby="cta-heading" id="contact" style="margin-top: 2.5rem;">
+      <div class="cta-text">
+        <h3 id="cta-heading">Ready to start your transformation?</h3>
+        <p>I'm available for new clients — in person in Hamburg or online worldwide.</p>
+      </div>
+      <a href="mailto:isaac971219@gmail.com" class="cta-btn" id="btn-contacto" aria-label="Send contact email">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+        Get in Touch
+      </a>
+    </section>
+
+    <!-- ── Footer ── -->
+    <footer>
+      <a href="mailto:isaac971219@gmail.com" class="cta-btn" id="btn-footer-contacto" aria-label="Send contact email" style="margin-bottom: 1.25rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+        isaac971219@gmail.com
+      </a>
+      <p>&copy; 2026 Isaac Vergara Mejia · Made with ♥ in Hamburg</p>
+    </footer>
+
+  </main>
+</body>
+</html>
