@@ -203,25 +203,6 @@
     .audience-card p { font-size: 1.02rem; color: var(--clr-body); line-height: 1.85; max-width: 68ch; margin: 0 0 1.75rem; }
     .audience-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; }
 
-    /* Testimonials */
-    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-    .testimonial-card {
-      background: linear-gradient(155deg, var(--clr-card-hi) 0%, var(--clr-card) 100%);
-      border: 2px solid var(--clr-border); box-shadow: var(--shadow-card); padding: 2rem;
-      display: flex; flex-direction: column; gap: 1rem;
-    }
-    .testimonial-stars { display: flex; gap: 3px; color: var(--clr-accent); }
-    .testimonial-stars svg { width: 15px; height: 15px; }
-    .testimonial-quote-icon { color: var(--clr-accent); width: 26px; height: 26px; }
-    .testimonial-text { font-size: 0.95rem; color: var(--clr-body); line-height: 1.75; margin: 0; }
-    .testimonial-foot { display: flex; align-items: baseline; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap; border-top: 1.5px solid var(--clr-border); padding-top: 0.9rem; }
-    .testimonial-name { font-family: 'Bebas Neue', 'Inter', sans-serif; font-size: 1.15rem; letter-spacing: 0.03em; text-transform: uppercase; color: var(--clr-text); }
-    .testimonial-result { font-family: 'Space Mono', monospace; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--clr-accent); }
-    .placeholder-note {
-      font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--clr-muted);
-      letter-spacing: 0.03em; margin-top: -1.25rem; margin-bottom: 2rem;
-    }
-
     /* Final CTA */
     .cta-section {
       background: linear-gradient(155deg, var(--clr-card-hi) 0%, var(--clr-card) 100%);
@@ -359,66 +340,6 @@
         <span class="tag">&#10003; Discipline</span>
         <span class="tag">&#10003; Results</span>
       </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- ── Testimonials ── -->
-  <section id="testimonials">
-    <div class="section-label"><h2>What Clients Say</h2></div>
-    <p class="section-sub">A few results from men who put in the work.</p>
-    <p class="placeholder-note">&#9888; Placeholder testimonials &mdash; swap in real client quotes (with their consent) before this goes live.</p>
-    <div class="testimonials-grid">
-
-      <article class="testimonial-card">
-        <svg class="testimonial-quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 7C6.5 7 4 9.5 4 12.8V17h5v-4.2H6.6c.1-2 1.7-3.6 3.7-3.7L9.5 7zm9 0c-3 0-5.5 2.5-5.5 5.8V17h5v-4.2H15.6c.1-2 1.7-3.6 3.7-3.7L18.5 7z"/></svg>
-        <div class="testimonial-stars">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
-        </div>
-        <p class="testimonial-text">"Isaac didn't just give me a program, he gave me a system. Down 12kg in four months and I've never felt more in control of my routine."</p>
-        <div class="testimonial-foot">
-          <span class="testimonial-name">Markus, 32</span>
-          <span class="testimonial-result">&minus;12kg in 4 months</span>
-        </div>
-      </article>
-
-      <article class="testimonial-card">
-        <svg class="testimonial-quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 7C6.5 7 4 9.5 4 12.8V17h5v-4.2H6.6c.1-2 1.7-3.6 3.7-3.7L9.5 7zm9 0c-3 0-5.5 2.5-5.5 5.8V17h5v-4.2H15.6c.1-2 1.7-3.6 3.7-3.7L18.5 7z"/></svg>
-        <div class="testimonial-stars">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
-        </div>
-        <p class="testimonial-text">"The online coaching kept me accountable in a way no app ever did. Weekly check-ins made all the difference &mdash; first time I've stayed consistent in years."</p>
-        <div class="testimonial-foot">
-          <span class="testimonial-name">Daniel, 28</span>
-          <span class="testimonial-result">Consistent 6+ months</span>
-        </div>
-      </article>
-
-      <article class="testimonial-card">
-        <svg class="testimonial-quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 7C6.5 7 4 9.5 4 12.8V17h5v-4.2H6.6c.1-2 1.7-3.6 3.7-3.7L9.5 7zm9 0c-3 0-5.5 2.5-5.5 5.8V17h5v-4.2H15.6c.1-2 1.7-3.6 3.7-3.7L18.5 7z"/></svg>
-        <div class="testimonial-stars">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
-        </div>
-        <p class="testimonial-text">"First coach who actually explained the why behind every session. Strength numbers up across the board and I finally feel like myself again."</p>
-        <div class="testimonial-foot">
-          <span class="testimonial-name">Jonas, 37</span>
-          <span class="testimonial-result">+18% strength, 12 weeks</span>
-        </div>
-      </article>
-
     </div>
   </section>
 
