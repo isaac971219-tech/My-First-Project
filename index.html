@@ -3,36 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Isaac Vergara Mejia — Fitness Coach & Wellness Expert based in Hamburg, Germany. Offering personal training and life coaching to help you transform your body and improve your quality of life." />
+  <meta name="description" content="Isaac Vergara Mejia — Fitness Coach & Wellness Expert based in Hamburg, Germany. 1-on-1 personal training and online coaching for men who are done making excuses." />
   <title>Isaac Vergara Mejia | Fitness Coach & Wellness</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    /* ── Reset & Base ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --clr-bg:       hsl(30, 5%, 12%);
-      --clr-surface:  hsl(30, 5%, 16%);
-      --clr-card:     hsl(30, 5%, 17%);
-      --clr-card-hi:  hsl(30, 5%, 22%);
-      --clr-accent:   hsl(74, 100%, 54%);
-      --clr-accent-l: hsl(74, 55%, 13%);
+      --clr-bg:        hsl(30, 5%, 12%);
+      --clr-card:      hsl(30, 5%, 17%);
+      --clr-card-hi:   hsl(30, 5%, 22%);
+      --clr-accent:    hsl(74, 100%, 54%);
+      --clr-accent-l:  hsl(74, 55%, 13%);
       --clr-on-accent: hsl(220, 20%, 8%);
-      --clr-text:     hsl(40, 4%, 95%);
-      --clr-muted:    hsl(30, 4%, 60%);
-      --clr-border:   hsl(30, 5%, 32%);
-      --radius:       0px;
-      --shadow-hard:  8px 8px 0 hsl(220 30% 2% / 0.9);
-      --shadow-card:  6px 6px 0 hsl(220 30% 2% / 0.85);
-      --transition:   0.18s ease-out;
+      --clr-text:      hsl(40, 4%, 95%);
+      --clr-body:      hsl(0, 0%, 88%);
+      --clr-muted:     hsl(30, 4%, 60%);
+      --clr-border:    hsl(30, 5%, 32%);
+      --shadow-hard:   8px 8px 0 hsl(220 30% 2% / 0.9);
+      --shadow-card:   6px 6px 0 hsl(220 30% 2% / 0.85);
+      --transition:    0.18s ease-out;
     }
 
     html { scroll-behavior: smooth; }
 
-    body {
-      font-family: 'Inter', sans-serif;
+    body { font-family: 'Inter', sans-serif; color: var(--clr-text); line-height: 1.7; }
+    a { color: var(--clr-accent); }
+    a:hover { color: var(--clr-text); }
+
+    .page-bg {
+      width: 100%;
       background-color: var(--clr-bg);
       background-image:
         url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMjAnIGhlaWdodD0nMjIwJz48ZmlsdGVyIGlkPSduJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC44NScgbnVtT2N0YXZlcz0nMycgc3RpdGNoVGlsZXM9J3N0aXRjaCcvPjxmZUNvbG9yTWF0cml4IHR5cGU9J21hdHJpeCcgdmFsdWVzPScwIDAgMCAwIDEgIDAgMCAwIDAgMSAgMCAwIDAgMCAxICAwIDAgMCAwLjA1IDAnLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWx0ZXI9J3VybCgjbiknLz48L3N2Zz4K"),
@@ -42,549 +44,392 @@
         radial-gradient(ellipse 600px 800px at 90% 85%, hsl(30 3% 6% / 0.6) 0%, transparent 55%),
         linear-gradient(160deg, hsl(30 5% 15%) 0%, hsl(30 5% 10%) 45%, hsl(30 6% 8%) 100%);
       background-size: 220px 220px, auto, auto, auto, auto, auto;
-      color: var(--clr-text);
-      line-height: 1.7;
       min-height: 100vh;
     }
 
-    /* ── Layout ── */
-    .page-wrapper {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem 5rem;
+    .page-wrapper { max-width: 1120px; margin: 0 auto; padding: 4rem 2rem 6rem; overflow-x: hidden; }
+
+    .divider { width: 100%; height: 3px; background: var(--clr-accent); margin: 4.5rem 0; }
+    .eyebrow {
+      font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700;
+      color: var(--clr-accent); letter-spacing: 0.14em; text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .section-label { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 0.75rem; }
+    .section-label::before { content: ''; width: 22px; height: 3px; background: var(--clr-accent); flex-shrink: 0; }
+    .section-label h2 {
+      font-family: 'Bebas Neue', 'Inter', sans-serif; font-size: 2.1rem; font-weight: 400;
+      letter-spacing: 0.04em; text-transform: uppercase; color: var(--clr-text); margin: 0;
+    }
+    .section-sub { font-size: 1rem; color: var(--clr-muted); max-width: 640px; margin-bottom: 2rem; }
+
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75em 1.7em;
+      background: var(--clr-accent); color: var(--clr-on-accent); border: 2px solid var(--clr-accent);
+      font-family: 'Space Mono', monospace; font-size: 0.85rem; font-weight: 700;
+      text-decoration: none; cursor: pointer; letter-spacing: 0.04em; text-transform: uppercase;
+      transition: transform var(--transition), box-shadow var(--transition);
+      box-shadow: 5px 5px 0 hsl(220 30% 2% / 0.9);
+    }
+    .cta-btn:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 hsl(220 30% 2% / 0.9); color: var(--clr-on-accent); }
+
+    .cta-btn-outline {
+      display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75em 1.7em;
+      background: transparent; color: var(--clr-text); border: 2px solid var(--clr-text);
+      font-family: 'Space Mono', monospace; font-size: 0.85rem; font-weight: 700;
+      text-decoration: none; cursor: pointer; letter-spacing: 0.04em; text-transform: uppercase;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition), color var(--transition);
+    }
+    .cta-btn-outline:hover {
+      background: var(--clr-accent); border-color: var(--clr-accent); color: var(--clr-on-accent);
+      transform: translate(-3px, -3px); box-shadow: 5px 5px 0 hsl(220 30% 2% / 0.9);
     }
 
-    /* ── Hero ── */
+    .tag {
+      display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.45em 0.95em;
+      background: var(--clr-accent-l); color: var(--clr-accent);
+      font-family: 'Space Mono', monospace; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.05em; text-transform: uppercase; border: 1.5px solid var(--clr-accent);
+    }
+
+    /* Hero */
     .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 1.75rem;
-      padding: 3.5rem 2.5rem 3rem;
-      background: linear-gradient(155deg, var(--clr-card-hi) 0%, var(--clr-card) 55%, hsl(220 9% 11%) 100%);
-      border: 2px solid var(--clr-border);
-      box-shadow: var(--shadow-hard);
-      position: relative;
-      overflow: hidden;
+      display: flex; align-items: center; gap: 3rem; flex-wrap: wrap;
+      padding: 4rem; background: linear-gradient(155deg, var(--clr-card-hi) 0%, var(--clr-card) 55%, hsl(220 9% 11%) 100%);
+      border: 2px solid var(--clr-border); box-shadow: var(--shadow-hard);
+      position: relative; overflow: hidden;
     }
-
-    /* subtle metallic sheen overlay */
     .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
+      content: ''; position: absolute; inset: 0;
       background-image:
         linear-gradient(115deg, hsl(0 0% 100% / 0.05) 0%, transparent 30%),
         radial-gradient(circle at 85% 90%, hsl(74 100% 54% / 0.08) 0%, transparent 55%);
       pointer-events: none;
     }
-
-    /* ── Avatar ── */
-    .avatar-wrap {
-      position: relative;
-      width: 158px;
-      height: 158px;
-      flex-shrink: 0;
+    .hero-copy { flex: 1 1 420px; position: relative; z-index: 1; }
+    .hero-headline {
+      font-family: 'Bebas Neue', 'Inter', sans-serif; font-size: clamp(2.6rem, 5.4vw, 4rem);
+      font-weight: 400; letter-spacing: 0.02em; line-height: 0.98; text-transform: uppercase;
+      color: var(--clr-text); margin: 0;
     }
+    .hero-sub { font-size: 1.05rem; color: var(--clr-body); max-width: 480px; margin: 1.5rem 0 0; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 2.25rem; }
 
-    .avatar-ring {
-      position: absolute;
-      inset: 10px -10px -10px 10px;
-      background: var(--clr-accent);
-      z-index: 0;
+    .hero-photo-wrap { position: relative; width: 300px; height: 380px; flex-shrink: 0; z-index: 1; }
+    .hero-photo-block { position: absolute; inset: 14px -14px -14px 14px; background: var(--clr-accent); z-index: 0; }
+    .hero-photo {
+      position: relative; z-index: 1; width: 300px; height: 380px; object-fit: cover;
+      object-position: top center; display: block; border: 3px solid var(--clr-bg);
+      outline: 2px solid var(--clr-text); outline-offset: -2px; filter: grayscale(0.15) contrast(1.08);
+      max-width: 100%;
     }
-
-    .avatar-img {
-      position: relative;
-      z-index: 1;
-      width: 158px;
-      height: 158px;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
-      border: 3px solid var(--clr-bg);
-      outline: 2px solid var(--clr-text);
-      outline-offset: -2px;
-      filter: grayscale(0.15) contrast(1.08);
-      transition: transform var(--transition);
+    .hero-badge {
+      position: absolute; z-index: 2; left: -18px; bottom: -18px;
+      background: var(--clr-bg); border: 2px solid var(--clr-accent);
+      box-shadow: 5px 5px 0 hsl(220 30% 2% / 0.9);
+      padding: 0.85rem 1.1rem; display: flex; flex-direction: column; align-items: center; text-align: center;
     }
-
-    .avatar-img:hover {
-      transform: translate(-4px, -4px);
-    }
-
-    /* ── Name & Title ── */
-    .hero-name {
-      font-family: 'Bebas Neue', 'Inter', sans-serif;
-      font-size: clamp(2.75rem, 7vw, 4.25rem);
-      font-weight: 400;
-      letter-spacing: 0.03em;
-      line-height: 0.95;
-      text-transform: uppercase;
-      color: var(--clr-text);
-    }
-
-    .hero-title {
-      margin-top: 0.6rem;
-      font-family: 'Space Mono', monospace;
-      font-size: clamp(0.78rem, 2vw, 0.9rem);
-      font-weight: 700;
+    .hero-badge-num {
+      font-family: 'Bebas Neue', 'Inter', sans-serif; font-size: 2.4rem; line-height: 0.9;
       color: var(--clr-accent);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+    }
+    .hero-badge-label {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--clr-text); margin-top: 0.35rem;
+      white-space: pre-line;
     }
 
-    /* ── Tag pills ── */
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.6rem;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.45em 0.95em;
-      background: var(--clr-accent-l);
-      color: var(--clr-accent);
-      font-family: 'Space Mono', monospace;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      border: 1.5px solid var(--clr-accent);
-      transition: background var(--transition), color var(--transition), transform var(--transition);
-    }
-
-    .tag:hover {
-      background: var(--clr-accent);
-      color: var(--clr-on-accent);
-      transform: translate(-2px, -2px);
-    }
-
-    /* ── Social links ── */
-    .hero-socials {
-      display: flex;
-      gap: 0.75rem;
-    }
-
-    .social-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      border: 2px solid var(--clr-text);
-      background: transparent;
-      color: var(--clr-text);
-      text-decoration: none;
-      transition: border-color var(--transition), color var(--transition), background var(--transition), transform var(--transition);
-    }
-
-    .social-btn:hover {
-      border-color: var(--clr-accent);
-      color: var(--clr-on-accent);
-      background: var(--clr-accent);
-      transform: translate(-3px, -3px);
-      box-shadow: 3px 3px 0 hsl(220 30% 2% / 0.9);
-    }
-
-    .social-btn svg { width: 18px; height: 18px; fill: currentColor; }
-
-    /* ── Divider ── */
-    .divider {
-      width: 100%;
-      height: 3px;
-      background: var(--clr-accent);
-      margin: 4rem 0;
-    }
-
-    /* ── About section ── */
-    .about-section {
-      margin-top: 3rem;
-    }
-
-    .section-label {
-      display: flex;
-      align-items: center;
-      gap: 0.9rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .section-label::before {
-      content: '';
-      width: 22px;
-      height: 3px;
-      background: var(--clr-accent);
-      flex-shrink: 0;
-    }
-
-    .section-label h2 {
-      font-family: 'Bebas Neue', 'Inter', sans-serif;
-      font-size: 2rem;
-      font-weight: 400;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--clr-text);
-    }
-
-    .about-card {
+    /* Services */
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .service-card {
       background: linear-gradient(155deg, var(--clr-card-hi) 0%, var(--clr-card) 100%);
-      box-shadow: var(--shadow-card);
-      padding: 2.25rem 2.5rem;
-      border: 2px solid var(--clr-border);
+      border: 2px solid var(--clr-border); box-shadow: var(--shadow-card); padding: 2rem;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
     }
-
-    .about-card p {
-      font-size: 1.025rem;
-      color: hsl(0, 0%, 88%);
-      line-height: 1.85;
-      margin-bottom: 1rem;
+    .service-card:hover { transform: translate(-4px, -4px); border-color: var(--clr-accent); box-shadow: 10px 10px 0 hsl(220 30% 2% / 0.85); }
+    .service-icon {
+      width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
+      background: var(--clr-accent-l); border: 1.5px solid var(--clr-accent); color: var(--clr-accent);
+      margin-bottom: 1.25rem;
     }
+    .service-icon svg { width: 24px; height: 24px; }
+    .service-title { font-family: 'Bebas Neue', 'Inter', sans-serif; font-size: 1.6rem; letter-spacing: 0.03em; text-transform: uppercase; margin: 0; }
+    .service-sub {
+      font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: 700; color: var(--clr-accent);
+      letter-spacing: 0.08em; text-transform: uppercase; margin: 0.35rem 0 1rem;
+    }
+    .service-desc { font-size: 0.95rem; color: var(--clr-body); margin: 0 0 1.25rem; }
+    .service-features { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.6rem; }
+    .service-features li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.88rem; color: var(--clr-muted); }
+    .service-features svg { width: 16px; height: 16px; color: var(--clr-accent); flex-shrink: 0; }
 
+    /* About */
+    .about-row { display: flex; gap: 2.5rem; align-items: stretch; flex-wrap: wrap; }
+    .stat-block {
+      flex: 0 0 200px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
+      background: linear-gradient(155deg, var(--clr-card-hi) 0%, var(--clr-card) 100%);
+      border: 2px solid var(--clr-accent); box-shadow: var(--shadow-card); padding: 2rem;
+    }
+    .stat-num { font-family: 'Bebas Neue', 'Inter', sans-serif; font-size: 4.2rem; line-height: 0.85; color: var(--clr-accent); }
+    .stat-label { font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--clr-text); margin-top: 0.75rem; }
+    .about-card {
+      flex: 1 1 420px; background: linear-gradient(155deg, var(--clr-card-hi) 0%, var(--clr-card) 100%);
+      box-shadow: var(--shadow-card); padding: 2rem 2.25rem; border: 2px solid var(--clr-border);
+    }
+    .about-card p { font-size: 1rem; color: var(--clr-body); line-height: 1.85; margin: 0 0 1rem; max-width: 62ch; }
     .about-card p:last-child { margin-bottom: 0; }
-
     .about-card strong { color: var(--clr-accent); }
 
-    /* ── Languages ── */
-    .lang-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      margin-top: 1.25rem;
-    }
-
-    .lang-item {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
+    /* Audience */
+    .audience-card {
       background: linear-gradient(155deg, var(--clr-card-hi) 0%, var(--clr-card) 100%);
-      border: 2px solid var(--clr-border);
-      padding: 0.85rem 1.25rem;
-      box-shadow: var(--shadow-card);
-      flex: 1 1 180px;
-      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      border: 2px solid var(--clr-border); box-shadow: var(--shadow-card); padding: 2.5rem;
     }
+    .audience-card p { font-size: 1.02rem; color: var(--clr-body); line-height: 1.85; max-width: 68ch; margin: 0 0 1.75rem; }
+    .audience-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; }
 
-    .lang-item:hover {
-      transform: translate(-3px, -3px);
-      border-color: var(--clr-accent);
-      box-shadow: 9px 9px 0 hsl(220 30% 2% / 0.85);
-    }
-
-    .lang-flag { font-size: 1.5rem; line-height: 1; }
-
-    .lang-info { display: flex; flex-direction: column; }
-
-    .lang-name {
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--clr-text);
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-    }
-
-    .lang-level {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.74rem;
-      color: var(--clr-muted);
-      margin-top: 0.15rem;
-    }
-
-    /* ── Skills grid ── */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .skill-card {
+    /* Testimonials */
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .testimonial-card {
       background: linear-gradient(155deg, var(--clr-card-hi) 0%, var(--clr-card) 100%);
-      box-shadow: var(--shadow-card);
-      padding: 1.5rem 1.75rem;
-      border: 2px solid var(--clr-border);
-      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      border: 2px solid var(--clr-border); box-shadow: var(--shadow-card); padding: 2rem;
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .testimonial-stars { display: flex; gap: 3px; color: var(--clr-accent); }
+    .testimonial-stars svg { width: 15px; height: 15px; }
+    .testimonial-quote-icon { color: var(--clr-accent); width: 26px; height: 26px; }
+    .testimonial-text { font-size: 0.95rem; color: var(--clr-body); line-height: 1.75; margin: 0; }
+    .testimonial-foot { display: flex; align-items: baseline; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap; border-top: 1.5px solid var(--clr-border); padding-top: 0.9rem; }
+    .testimonial-name { font-family: 'Bebas Neue', 'Inter', sans-serif; font-size: 1.15rem; letter-spacing: 0.03em; text-transform: uppercase; color: var(--clr-text); }
+    .testimonial-result { font-family: 'Space Mono', monospace; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--clr-accent); }
+    .placeholder-note {
+      font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--clr-muted);
+      letter-spacing: 0.03em; margin-top: -1.25rem; margin-bottom: 2rem;
     }
 
-    .skill-card:hover {
-      transform: translate(-4px, -4px);
-      border-color: var(--clr-accent);
-      box-shadow: 10px 10px 0 hsl(220 30% 2% / 0.85);
-    }
-
-    .skill-icon {
-      font-size: 1.6rem;
-      margin-bottom: 0.6rem;
-      filter: grayscale(0.2);
-    }
-
-    .skill-name {
-      font-family: 'Bebas Neue', 'Inter', sans-serif;
-      font-weight: 400;
-      font-size: 1.3rem;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      color: var(--clr-text);
-      margin-bottom: 0.35rem;
-    }
-
-    .skill-desc {
-      font-size: 0.875rem;
-      color: var(--clr-muted);
-      line-height: 1.6;
-    }
-
-    /* ── Contact CTA ── */
+    /* Final CTA */
     .cta-section {
-      margin-top: 4rem;
       background: linear-gradient(155deg, var(--clr-card-hi) 0%, var(--clr-card) 100%);
-      border: 2px solid var(--clr-accent);
-      box-shadow: var(--shadow-card);
-      padding: 2rem 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1.25rem;
+      border: 2px solid var(--clr-accent); box-shadow: var(--shadow-card); padding: 2.5rem;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
     }
+    .cta-text h3 { font-family: 'Bebas Neue', 'Inter', sans-serif; font-size: 1.8rem; font-weight: 400; letter-spacing: 0.03em; text-transform: uppercase; color: var(--clr-text); margin: 0 0 0.35rem; }
+    .cta-text p { font-size: 0.95rem; color: var(--clr-muted); margin: 0; }
+    .cta-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 
-    .cta-text h3 {
-      font-family: 'Bebas Neue', 'Inter', sans-serif;
-      font-size: 1.7rem;
-      font-weight: 400;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      color: var(--clr-text);
-      margin-bottom: 0.3rem;
-    }
+    footer { margin-top: 5rem; text-align: center; font-family: 'Space Mono', monospace; font-size: 0.76rem; color: var(--clr-muted); letter-spacing: 0.02em; }
+    footer .cta-btn { margin-bottom: 1.25rem; }
 
-    .cta-text p {
-      font-size: 0.9rem;
-      color: var(--clr-muted);
-    }
-
-    .cta-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .cta-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75em 1.7em;
-      background: var(--clr-accent);
-      color: var(--clr-on-accent);
-      border: 2px solid var(--clr-accent);
-      font-family: 'Space Mono', monospace;
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-decoration: none;
-      cursor: pointer;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      transition: transform var(--transition), box-shadow var(--transition);
-      box-shadow: 5px 5px 0 hsl(220 30% 2% / 0.9);
-    }
-
-    .cta-btn:hover {
-      transform: translate(-3px, -3px);
-      box-shadow: 8px 8px 0 hsl(220 30% 2% / 0.9);
-    }
-
-    /* ── Footer ── */
-    footer {
-      margin-top: 5rem;
-      text-align: center;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.76rem;
-      color: var(--clr-muted);
-      letter-spacing: 0.02em;
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 580px) {
-      .hero { padding: 2.5rem 1.5rem 2rem; }
-      .about-card { padding: 1.75rem 1.5rem; }
-      .cta-section { padding: 1.75rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    @media (max-width: 760px) {
+      .page-wrapper { padding: 2.5rem 1.25rem 4rem; }
+      .hero { padding: 2.5rem 1.5rem; flex-direction: column; }
+      .hero-photo-wrap { width: 240px; height: 300px; }
+      .hero-photo { width: 240px; height: 300px; }
+      .about-row { flex-direction: column; }
+      .stat-block { flex: 1 1 auto; }
+      .cta-section { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-  <main class="page-wrapper" role="main">
+<div class="page-bg">
+<main class="page-wrapper" role="main">
 
-    <!-- ── Hero ── -->
-    <header class="hero" id="hero">
-      <div class="avatar-wrap">
-        <span class="avatar-ring" aria-hidden="true"></span>
-        <img
-          class="avatar-img"
-          src="Isaacweb.jpeg"
-          alt="Profile photo of Isaac Vergara Mejia"
-          width="158"
-          height="158"
-        />
-      </div>
-
-      <div>
-        <h1 class="hero-name">Isaac Vergara Mejia</h1>
-        <p class="hero-title">Fitness Coach &amp; Wellness Expert · Hamburg, Germany</p>
-      </div>
-
-      <div class="hero-tags" aria-label="Specialties">
-        <span class="tag">✦ Fitness Coaching</span>
-        <span class="tag">✦ Personal Training</span>
-        <span class="tag">✦ Life Coaching</span>
-        <span class="tag">✦ Wellness</span>
-      </div>
-
-      <nav class="hero-socials" aria-label="Social links">
-        <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/in/isaac-vergara-mejia-97e12e19e" target="_blank" rel="noopener noreferrer" class="social-btn" id="social-linkedin" aria-label="LinkedIn" title="LinkedIn">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20.447 20.452H17.21v-5.569c0-1.328-.025-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.982V8.998h3.107v1.566h.044c.433-.82 1.49-1.685 3.068-1.685 3.28 0 3.885 2.159 3.885 4.967v6.606zM5.337 7.433a1.804 1.804 0 1 1 0-3.607 1.804 1.804 0 0 1 0 3.607zm1.605 13.019H3.73V8.998h3.212v11.454zM22.225 0H1.771C.79 0 0 .774 0 1.729v20.542C0 23.228.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
+  <!-- ── Hero ── -->
+  <header class="hero" id="hero">
+    <div class="hero-copy">
+      <div class="eyebrow">Isaac Vergara Mejia &middot; Fitness Coach, Hamburg</div>
+      <h1 class="hero-headline">Rebuild Your Body.<br>Rebuild Your Discipline.</h1>
+      <p class="hero-sub">1-on-1 personal training and online coaching for men who are done making excuses. Five years of real client results, one science-backed method &mdash; built for you.</p>
+      <div class="hero-actions">
+        <a href="https://buy.stripe.com/test_bJedRb0id29o0Cz3aoao800" target="_blank" rel="noopener noreferrer" class="cta-btn" id="btn-book-hero" aria-label="Book and pay for a coaching session, 50 euros">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v3h20V6c0-1.1-.9-2-2-2zM2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-7H2v7zm4-3h4v2H6v-2z"/></svg>
+          Book Session &middot; &euro;50
         </a>
-
-        <!-- Email -->
-        <a href="mailto:isaac971219@gmail.com" class="social-btn" id="social-email" aria-label="Email address" title="Email">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
-          </svg>
-        </a>
-      </nav>
-    </header>
-
-    <div class="divider" role="separator"></div>
-
-    <!-- ── About Me ── -->
-    <section class="about-section" aria-labelledby="about-heading" id="about">
-      <div class="section-label">
-        <h2 id="about-heading">About Me</h2>
+        <a href="#services" class="cta-btn-outline">See Services</a>
       </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <span class="hero-photo-block"></span>
+      <img class="hero-photo" src="Isaacweb.jpeg" alt="Isaac Vergara Mejia, fitness coach" width="300" height="380">
+      <div class="hero-badge">
+        <span class="hero-badge-num">5+</span>
+        <span class="hero-badge-label">Years&#10;Coaching</span>
+      </div>
+    </div>
+  </header>
 
+  <div class="divider"></div>
+
+  <!-- ── Services ── -->
+  <section id="services">
+    <div class="section-label"><h2>Services</h2></div>
+    <p class="section-sub">Two ways to train with me &mdash; same standard, same accountability, whichever fits your life.</p>
+    <div class="services-grid">
+      <article class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 9v6M2 10v4M20 9v6M22 10v4M7 12h10"/>
+            <rect x="5.5" y="7" width="3" height="10" rx="1"/>
+            <rect x="15.5" y="7" width="3" height="10" rx="1"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Personal Training</h3>
+        <p class="service-sub">In-Person &middot; Hamburg</p>
+        <p class="service-desc">One-on-one sessions built around your body, your schedule, and your goals &mdash; full attention, zero guesswork, real accountability in the room with you.</p>
+        <ul class="service-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg> Custom program design</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg> Form correction &amp; injury prevention</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg> Progress tracked every session</li>
+        </ul>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="12" rx="1"/>
+            <path d="M2 20h20M9 20l1-4h4l1 4"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Online Coaching</h3>
+        <p class="service-sub">Remote &middot; Worldwide</p>
+        <p class="service-desc">Full remote coaching for driven men who want structure without stepping into a gym with me. Train anywhere, stay accountable everywhere.</p>
+        <ul class="service-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg> Custom training &amp; nutrition plans</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg> Weekly check-ins &amp; adjustments</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg> Direct support, 7 days a week</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── About ── -->
+  <section id="about">
+    <div class="section-label"><h2>About Isaac</h2></div>
+    <div class="about-row">
+      <div class="stat-block">
+        <span class="stat-num">5+</span>
+        <span class="stat-label">Years Coaching Clients</span>
+      </div>
       <div class="about-card">
-        <p>
-          Hi! I'm <strong>Isaac Vergara Mejia</strong>, a Fitness Coach and Wellness Expert with a background
-          in Economics and an MBA. My mission is to help people transform their bodies, build lasting healthy habits,
-          and significantly improve their quality of life through personalized training and coaching.
-        </p>
-        <p>
-          Based in Hamburg, Germany, I offer one-on-one fitness training, online coaching, and lifestyle
-          programs tailored to each individual's goals — whether you want to lose weight, gain strength,
-          boost your energy, or simply feel better every day. I combine scientific knowledge with a
-          motivational, results-driven approach.
-        </p>
-        <p>
-          I believe that true wellness goes beyond the gym. Discipline, consistency, and the right mindset
-          are the real foundations of a healthy and fulfilling life. If you're ready to take the first step
-          toward a better version of yourself, I'm here to guide you every step of the way.
-        </p>
+        <p>I'm <strong>Isaac Vergara Mejia</strong> &mdash; a Fitness Coach and Wellness Expert with over five years of experience helping men rebuild their bodies and their discipline. My background in Economics and an MBA taught me how to build systems that actually work; I apply the same rigor to your training.</p>
+        <p>Every program I build combines science-backed methodology with a direct, motivational coaching style. No fads, no fluff &mdash; just a structured plan, consistent accountability, and the mindset work most programs skip entirely.</p>
+        <p>Based in Hamburg, Germany &mdash; training clients in person and online, worldwide.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ── Services ── -->
-    <section class="about-section" aria-labelledby="services-heading" id="services" style="margin-top: 4rem;">
-      <div class="section-label">
-        <h2 id="services-heading">My Services</h2>
+  <div class="divider"></div>
+
+  <!-- ── Target audience ── -->
+  <section id="audience">
+    <div class="section-label"><h2>Who This Is For</h2></div>
+    <p class="section-sub">Built for men 25&ndash;40 who are ready to stop drifting and start training with purpose.</p>
+    <div class="audience-card">
+      <p>Maybe the desk job killed your energy. Maybe you used to train and lost the routine. Maybe you've never had a real plan to begin with. This program is for men who want to look strong, feel strong, and carry themselves with the discipline that comes from actually showing up &mdash; week after week, with a coach who holds the standard.</p>
+      <div class="audience-chips">
+        <span class="tag">&#10003; Strength</span>
+        <span class="tag">&#10003; Energy</span>
+        <span class="tag">&#10003; Discipline</span>
+        <span class="tag">&#10003; Results</span>
       </div>
+    </div>
+  </section>
 
-      <div class="skills-grid">
-        <article class="skill-card">
-          <div class="skill-icon" aria-hidden="true">🏋️</div>
-          <p class="skill-name">Personal Training</p>
-          <p class="skill-desc">Customized workout plans designed to match your fitness level, goals, and lifestyle — in person or online.</p>
-        </article>
+  <div class="divider"></div>
 
-        <article class="skill-card">
-          <div class="skill-icon" aria-hidden="true">🥗</div>
-          <p class="skill-name">Nutrition Guidance</p>
-          <p class="skill-desc">Practical nutrition strategies to fuel your performance, accelerate results, and build sustainable eating habits.</p>
-        </article>
+  <!-- ── Testimonials ── -->
+  <section id="testimonials">
+    <div class="section-label"><h2>What Clients Say</h2></div>
+    <p class="section-sub">A few results from men who put in the work.</p>
+    <p class="placeholder-note">&#9888; Placeholder testimonials &mdash; swap in real client quotes (with their consent) before this goes live.</p>
+    <div class="testimonials-grid">
 
-        <article class="skill-card">
-          <div class="skill-icon" aria-hidden="true">🧠</div>
-          <p class="skill-name">Life Coaching</p>
-          <p class="skill-desc">Mindset, motivation, and goal-setting coaching to help you overcome barriers and stay committed to your journey.</p>
-        </article>
-
-        <article class="skill-card">
-          <div class="skill-icon" aria-hidden="true">📱</div>
-          <p class="skill-name">Online Coaching</p>
-          <p class="skill-desc">Full remote coaching programs with weekly check-ins, progress tracking, and 24/7 support — wherever you are.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ── Languages ── -->
-    <section class="about-section" aria-labelledby="languages-heading" id="languages" style="margin-top: 4rem;">
-      <div class="section-label">
-        <h2 id="languages-heading">Languages</h2>
-      </div>
-
-      <div class="lang-grid">
-        <div class="lang-item">
-          <span class="lang-flag" aria-hidden="true">🇩🇪</span>
-          <div class="lang-info">
-            <span class="lang-name">German</span>
-            <span class="lang-level">Professional proficiency</span>
-          </div>
+      <article class="testimonial-card">
+        <svg class="testimonial-quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 7C6.5 7 4 9.5 4 12.8V17h5v-4.2H6.6c.1-2 1.7-3.6 3.7-3.7L9.5 7zm9 0c-3 0-5.5 2.5-5.5 5.8V17h5v-4.2H15.6c.1-2 1.7-3.6 3.7-3.7L18.5 7z"/></svg>
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
         </div>
-        <div class="lang-item">
-          <span class="lang-flag" aria-hidden="true">🇬🇧</span>
-          <div class="lang-info">
-            <span class="lang-name">English</span>
-            <span class="lang-level">Full professional proficiency</span>
-          </div>
+        <p class="testimonial-text">"Isaac didn't just give me a program, he gave me a system. Down 12kg in four months and I've never felt more in control of my routine."</p>
+        <div class="testimonial-foot">
+          <span class="testimonial-name">Markus, 32</span>
+          <span class="testimonial-result">&minus;12kg in 4 months</span>
         </div>
-        <div class="lang-item">
-          <span class="lang-flag" aria-hidden="true">🇪🇸</span>
-          <div class="lang-info">
-            <span class="lang-name">Spanish</span>
-            <span class="lang-level">Native speaker</span>
-          </div>
-        </div>
-      </div>
-    </section>
+      </article>
 
-    <!-- ── CTA Contact ── -->
-    <section class="cta-section" aria-labelledby="cta-heading" id="contact" style="margin-top: 4rem;">
+      <article class="testimonial-card">
+        <svg class="testimonial-quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 7C6.5 7 4 9.5 4 12.8V17h5v-4.2H6.6c.1-2 1.7-3.6 3.7-3.7L9.5 7zm9 0c-3 0-5.5 2.5-5.5 5.8V17h5v-4.2H15.6c.1-2 1.7-3.6 3.7-3.7L18.5 7z"/></svg>
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
+        </div>
+        <p class="testimonial-text">"The online coaching kept me accountable in a way no app ever did. Weekly check-ins made all the difference &mdash; first time I've stayed consistent in years."</p>
+        <div class="testimonial-foot">
+          <span class="testimonial-name">Daniel, 28</span>
+          <span class="testimonial-result">Consistent 6+ months</span>
+        </div>
+      </article>
+
+      <article class="testimonial-card">
+        <svg class="testimonial-quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 7C6.5 7 4 9.5 4 12.8V17h5v-4.2H6.6c.1-2 1.7-3.6 3.7-3.7L9.5 7zm9 0c-3 0-5.5 2.5-5.5 5.8V17h5v-4.2H15.6c.1-2 1.7-3.6 3.7-3.7L18.5 7z"/></svg>
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2z"/></svg>
+        </div>
+        <p class="testimonial-text">"First coach who actually explained the why behind every session. Strength numbers up across the board and I finally feel like myself again."</p>
+        <div class="testimonial-foot">
+          <span class="testimonial-name">Jonas, 37</span>
+          <span class="testimonial-result">+18% strength, 12 weeks</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── Final CTA ── -->
+  <section id="contact">
+    <div class="cta-section">
       <div class="cta-text">
-        <h3 id="cta-heading">Ready to start your transformation?</h3>
-        <p>I'm available for new clients — in person in Hamburg or online worldwide.</p>
+        <h3>Ready to start your transformation?</h3>
+        <p>I'm available for new clients &mdash; in person in Hamburg or online worldwide.</p>
       </div>
       <div class="cta-actions">
         <a href="https://buy.stripe.com/test_bJedRb0id29o0Cz3aoao800" target="_blank" rel="noopener noreferrer" class="cta-btn" id="btn-book" aria-label="Book and pay for a coaching session, 50 euros">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M20 4H4c-1.1 0-2 .9-2 2v3h20V6c0-1.1-.9-2-2-2zM2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-7H2v7zm4-3h4v2H6v-2z"/>
-          </svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v3h20V6c0-1.1-.9-2-2-2zM2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-7H2v7zm4-3h4v2H6v-2z"/></svg>
           Book Session &middot; &euro;50
         </a>
-        <a href="mailto:isaac971219@gmail.com" class="cta-btn" id="btn-contacto" aria-label="Send contact email">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
-          </svg>
+        <a href="mailto:isaac971219@gmail.com" class="cta-btn-outline" id="btn-contacto" aria-label="Send contact email">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
           Get in Touch
         </a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ── Footer ── -->
-    <footer>
-      <a href="mailto:isaac971219@gmail.com" class="cta-btn" id="btn-footer-contacto" aria-label="Send contact email" style="margin-bottom: 1.25rem;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
-        </svg>
-        isaac971219@gmail.com
-      </a>
-      <p>&copy; 2026 Isaac Vergara Mejia · Made with ♥ in Hamburg</p>
-    </footer>
+  <!-- ── Footer ── -->
+  <footer>
+    <a href="mailto:isaac971219@gmail.com" class="cta-btn" id="btn-footer-contacto" aria-label="Send contact email">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      isaac971219@gmail.com
+    </a>
+    <p>&copy; 2026 Isaac Vergara Mejia &middot; Made with &hearts; in Hamburg</p>
+  </footer>
 
-  </main>
+</main>
+</div>
 </body>
 </html>
