@@ -367,6 +367,12 @@
       color: var(--clr-muted);
     }
 
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
     .cta-btn {
       display: inline-flex;
       align-items: center;
@@ -552,12 +558,20 @@
         <h3 id="cta-heading">Ready to start your transformation?</h3>
         <p>I'm available for new clients — in person in Hamburg or online worldwide.</p>
       </div>
-      <a href="mailto:isaac971219@gmail.com" class="cta-btn" id="btn-contacto" aria-label="Send contact email">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
-        </svg>
-        Get in Touch
-      </a>
+      <div class="cta-actions">
+        <a href="https://buy.stripe.com/test_bJedRb0id29o0Cz3aoao800" target="_blank" rel="noopener noreferrer" class="cta-btn" id="btn-book" aria-label="Book and pay for a coaching session, 50 euros">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v3h20V6c0-1.1-.9-2-2-2zM2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-7H2v7zm4-3h4v2H6v-2z"/>
+          </svg>
+          Book Session &middot; &euro;50
+        </a>
+        <a href="mailto:isaac971219@gmail.com" class="cta-btn" id="btn-contacto" aria-label="Send contact email">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+          Get in Touch
+        </a>
+      </div>
     </section>
 
     <!-- ── Footer ── -->
