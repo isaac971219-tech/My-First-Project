@@ -12,42 +12,57 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --clr-bg:        hsl(30, 5%, 12%);
-      --clr-card:      hsl(30, 5%, 17%);
-      --clr-card-hi:   hsl(30, 5%, 22%);
-      --clr-accent:    hsl(74, 100%, 54%);
-      --clr-accent-l:  hsl(74, 55%, 13%);
-      --clr-on-accent: hsl(220, 20%, 8%);
-      --clr-text:      hsl(40, 4%, 95%);
-      --clr-body:      hsl(0, 0%, 88%);
-      --clr-muted:     hsl(30, 4%, 60%);
-      --clr-border:    hsl(30, 5%, 32%);
-      --shadow-hard:   8px 8px 0 hsl(220 30% 2% / 0.9);
-      --shadow-card:   6px 6px 0 hsl(220 30% 2% / 0.85);
+      /* Palette sampled from the project's own photography: near-black
+         grayscale mood shots + one warm sepia highlight (~28° hue) */
+      --clr-bg:        hsl(30, 4%, 7%);
+      --clr-card:      hsl(30, 4%, 13%);
+      --clr-card-hi:   hsl(30, 4%, 18%);
+      --clr-accent:    hsl(28, 55%, 55%);
+      --clr-accent-l:  hsl(28, 45%, 15%);
+      --clr-on-accent: hsl(28, 30%, 9%);
+      --clr-text:      hsl(35, 20%, 93%);
+      --clr-body:      hsl(35, 10%, 84%);
+      --clr-muted:     hsl(30, 6%, 60%);
+      --clr-border:    hsl(30, 6%, 30%);
+      --shadow-hard:   8px 8px 0 hsl(30 25% 3% / 0.9);
+      --shadow-card:   6px 6px 0 hsl(30 25% 3% / 0.85);
       --transition:    0.18s ease-out;
     }
 
     html { scroll-behavior: smooth; }
 
-    body { font-family: 'Inter', sans-serif; color: var(--clr-text); line-height: 1.7; }
+    body { font-family: 'Inter', sans-serif; color: var(--clr-text); line-height: 1.7; background: var(--clr-bg); }
     a { color: var(--clr-accent); }
     a:hover { color: var(--clr-text); }
 
-    .page-bg {
-      width: 100%;
-      background-color: var(--clr-bg);
-      background-image:
-        url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMjAnIGhlaWdodD0nMjIwJz48ZmlsdGVyIGlkPSduJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC44NScgbnVtT2N0YXZlcz0nMycgc3RpdGNoVGlsZXM9J3N0aXRjaCcvPjxmZUNvbG9yTWF0cml4IHR5cGU9J21hdHJpeCcgdmFsdWVzPScwIDAgMCAwIDEgIDAgMCAwIDAgMSAgMCAwIDAgMCAxICAwIDAgMCAwLjA1IDAnLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWx0ZXI9J3VybCgjbiknLz48L3N2Zz4K"),
-        repeating-linear-gradient(180deg, transparent 0 156px, hsl(30 4% 4% / 0.4) 156px 159px, transparent 159px 162px),
-        repeating-linear-gradient(90deg, transparent 0 420px, hsl(30 4% 4% / 0.32) 420px 423px, transparent 423px 426px),
-        radial-gradient(ellipse 700px 500px at 12% 8%, hsl(30 3% 22% / 0.55) 0%, transparent 60%),
-        radial-gradient(ellipse 600px 800px at 90% 85%, hsl(30 3% 6% / 0.6) 0%, transparent 55%),
-        linear-gradient(160deg, hsl(30 5% 15%) 0%, hsl(30 5% 10%) 45%, hsl(30 6% 8%) 100%);
-      background-size: 220px 220px, auto, auto, auto, auto, auto;
-      min-height: 100vh;
+    /* ── Photo collage backdrop ── fixed behind all content, built from
+       the project's own photos, desaturated + scrimmed for legibility */
+    .collage-bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+    .collage-grid {
+      position: absolute; inset: 0; display: grid;
+      grid-template-columns: 1.15fr 1fr 1.15fr;
+      grid-template-rows: 1fr 1fr;
+    }
+    .collage-tile {
+      background-size: cover; background-position: center;
+      filter: grayscale(1) contrast(1.15) brightness(0.55);
+    }
+    .collage-tile--man  { grid-row: 1 / 3; grid-column: 1; background-image: url("Man in black.jpg"); background-position: center 22%; }
+    .collage-tile--back { grid-row: 1; grid-column: 2; background-image: url("Back David laid.jpg"); }
+    .collage-tile--hand { grid-row: 2; grid-column: 2; background-image: url("hand grabbing ballom bell.jpg"); }
+    .collage-tile--run  { grid-row: 1 / 3; grid-column: 3; background-image: url("Running.jpg"); background-position: center 35%; }
+    .collage-scrim {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 90% 70% at 50% 38%, transparent 0%, hsl(30 20% 3% / 0.55) 68%, hsl(30 20% 3% / 0.9) 100%),
+        linear-gradient(180deg, hsl(30 20% 3% / 0.7) 0%, hsl(30 20% 3% / 0.45) 30%, hsl(30 20% 3% / 0.8) 100%);
+    }
+    .collage-grain {
+      position: absolute; inset: 0; opacity: 0.5; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMjAnIGhlaWdodD0nMjIwJz48ZmlsdGVyIGlkPSduJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC44NScgbnVtT2N0YXZlcz0nMycgc3RpdGNoVGlsZXM9J3N0aXRjaCcvPjxmZUNvbG9yTWF0cml4IHR5cGU9J21hdHJpeCcgdmFsdWVzPScwIDAgMCAwIDEgIDAgMCAwIDAgMSAgMCAwIDAgMCAxICAwIDAgMCAwLjA1IDAnLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWx0ZXI9J3VybCgjbiknLz48L3N2Zz4K");
     }
 
-    .page-wrapper { max-width: 1120px; margin: 0 auto; padding: 4rem 2rem 6rem; overflow-x: hidden; }
+    .page-wrapper { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 4rem 2rem 6rem; overflow-x: hidden; }
 
     .divider { width: 100%; height: 3px; background: var(--clr-accent); margin: 4.5rem 0; }
     .eyebrow {
@@ -69,9 +84,9 @@
       font-family: 'Space Mono', monospace; font-size: 0.85rem; font-weight: 700;
       text-decoration: none; cursor: pointer; letter-spacing: 0.04em; text-transform: uppercase;
       transition: transform var(--transition), box-shadow var(--transition);
-      box-shadow: 5px 5px 0 hsl(220 30% 2% / 0.9);
+      box-shadow: 5px 5px 0 hsl(30 25% 3% / 0.9);
     }
-    .cta-btn:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 hsl(220 30% 2% / 0.9); color: var(--clr-on-accent); }
+    .cta-btn:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 hsl(30 25% 3% / 0.9); color: var(--clr-on-accent); }
 
     .cta-btn-outline {
       display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75em 1.7em;
@@ -82,7 +97,7 @@
     }
     .cta-btn-outline:hover {
       background: var(--clr-accent); border-color: var(--clr-accent); color: var(--clr-on-accent);
-      transform: translate(-3px, -3px); box-shadow: 5px 5px 0 hsl(220 30% 2% / 0.9);
+      transform: translate(-3px, -3px); box-shadow: 5px 5px 0 hsl(30 25% 3% / 0.9);
     }
 
     .tag {
@@ -103,7 +118,7 @@
       content: ''; position: absolute; inset: 0;
       background-image:
         linear-gradient(115deg, hsl(0 0% 100% / 0.05) 0%, transparent 30%),
-        radial-gradient(circle at 85% 90%, hsl(74 100% 54% / 0.08) 0%, transparent 55%);
+        radial-gradient(circle at 85% 90%, hsl(28 55% 55% / 0.1) 0%, transparent 55%);
       pointer-events: none;
     }
     .hero-copy { flex: 1 1 420px; position: relative; z-index: 1; }
@@ -126,7 +141,7 @@
     .hero-badge {
       position: absolute; z-index: 2; left: -18px; bottom: -18px;
       background: var(--clr-bg); border: 2px solid var(--clr-accent);
-      box-shadow: 5px 5px 0 hsl(220 30% 2% / 0.9);
+      box-shadow: 5px 5px 0 hsl(30 25% 3% / 0.9);
       padding: 0.85rem 1.1rem; display: flex; flex-direction: column; align-items: center; text-align: center;
     }
     .hero-badge-num {
@@ -146,7 +161,7 @@
       border: 2px solid var(--clr-border); box-shadow: var(--shadow-card); padding: 2rem;
       transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
     }
-    .service-card:hover { transform: translate(-4px, -4px); border-color: var(--clr-accent); box-shadow: 10px 10px 0 hsl(220 30% 2% / 0.85); }
+    .service-card:hover { transform: translate(-4px, -4px); border-color: var(--clr-accent); box-shadow: 10px 10px 0 hsl(30 25% 3% / 0.85); }
     .service-icon {
       width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
       background: var(--clr-accent-l); border: 1.5px solid var(--clr-accent); color: var(--clr-accent);
@@ -232,7 +247,16 @@
   </style>
 </head>
 <body>
-<div class="page-bg">
+<div class="collage-bg" aria-hidden="true">
+  <div class="collage-grid">
+    <div class="collage-tile collage-tile--man"></div>
+    <div class="collage-tile collage-tile--back"></div>
+    <div class="collage-tile collage-tile--hand"></div>
+    <div class="collage-tile collage-tile--run"></div>
+  </div>
+  <div class="collage-scrim"></div>
+  <div class="collage-grain"></div>
+</div>
 <main class="page-wrapper" role="main">
 
   <!-- ── Hero ── -->
@@ -430,6 +454,5 @@
   </footer>
 
 </main>
-</div>
 </body>
 </html>
