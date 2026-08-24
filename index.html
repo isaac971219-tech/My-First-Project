@@ -7,373 +7,310 @@
   <title>Isaac Vergara Mejia | Fitness Coach & Wellness</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      /* Palette sampled from the project's own photography: near-black
-         grayscale mood shots + one warm sepia highlight (~28° hue) */
-      --clr-bg:        hsl(30, 4%, 7%);
-      --clr-card:      hsl(30, 4%, 13%);
-      --clr-card-hi:   hsl(30, 4%, 18%);
-      --clr-accent:    hsl(28, 55%, 55%);
-      --clr-accent-l:  hsl(28, 45%, 15%);
-      --clr-on-accent: hsl(28, 30%, 9%);
-      --clr-text:      hsl(35, 20%, 93%);
-      --clr-body:      hsl(35, 10%, 84%);
-      --clr-muted:     hsl(30, 6%, 60%);
-      --clr-border:    hsl(30, 6%, 30%);
-      --shadow-hard:   8px 8px 0 hsl(30 25% 3% / 0.9);
-      --shadow-card:   6px 6px 0 hsl(30 25% 3% / 0.85);
-      --transition:    0.18s ease-out;
+      --clr-outer:    #1a1a1a;
+      --clr-canvas:   #0a0a0a;
+      --clr-white:    #ffffff;
+      --clr-body:     #a8a8a8;
+      --clr-eyebrow:  #7a7a7a;
+      --clr-border:   rgba(255, 255, 255, 0.28);
+      --clr-border-soft: rgba(255, 255, 255, 0.12);
     }
 
     html { scroll-behavior: smooth; }
 
-    body { font-family: 'Inter', sans-serif; color: var(--clr-text); line-height: 1.7; background: var(--clr-bg); }
-    a { color: var(--clr-accent); }
-    a:hover { color: var(--clr-text); }
+    body {
+      background: var(--clr-outer);
+      color: var(--clr-white);
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
 
-    /* ── Photo collage backdrop ── fixed behind all content, built from
-       the project's own photos, desaturated + scrimmed for legibility */
-    .collage-bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
-    .collage-grid {
-      position: absolute; inset: 0; display: grid;
-      grid-template-columns: 1.15fr 1fr 1.15fr;
-      grid-template-rows: 1fr 1fr;
+    /* ── Frame: screen-within-a-screen ── */
+    .frame { padding: 22px; }
+    .canvas {
+      position: relative;
+      background: var(--clr-canvas);
+      border-radius: 18px;
+      overflow: hidden;
     }
-    .collage-tile {
-      background-size: cover; background-position: center;
-      filter: grayscale(1) contrast(1.15) brightness(0.55);
-    }
-    .collage-tile--man  { grid-row: 1 / 3; grid-column: 1; background-image: url("Man in black.jpg"); background-position: center 22%; }
-    .collage-tile--back { grid-row: 1; grid-column: 2; background-image: url("Back David laid.jpg"); }
-    .collage-tile--hand { grid-row: 2; grid-column: 2; background-image: url("hand grabbing ballom bell.jpg"); }
-    .collage-tile--run  { grid-row: 1 / 3; grid-column: 3; background-image: url("Running.jpg"); background-position: center 35%; }
-    .collage-scrim {
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 90% 70% at 50% 38%, transparent 0%, hsl(30 20% 3% / 0.55) 68%, hsl(30 20% 3% / 0.9) 100%),
-        linear-gradient(180deg, hsl(30 20% 3% / 0.7) 0%, hsl(30 20% 3% / 0.45) 30%, hsl(30 20% 3% / 0.8) 100%);
-    }
-    .collage-grain {
-      position: absolute; inset: 0; opacity: 0.5; mix-blend-mode: overlay;
+
+    .grain {
+      position: absolute; inset: 0; z-index: 5; pointer-events: none;
+      opacity: 0.35; mix-blend-mode: overlay;
       background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMjAnIGhlaWdodD0nMjIwJz48ZmlsdGVyIGlkPSduJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC44NScgbnVtT2N0YXZlcz0nMycgc3RpdGNoVGlsZXM9J3N0aXRjaCcvPjxmZUNvbG9yTWF0cml4IHR5cGU9J21hdHJpeCcgdmFsdWVzPScwIDAgMCAwIDEgIDAgMCAwIDAgMSAgMCAwIDAgMCAxICAwIDAgMCAwLjA1IDAnLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWx0ZXI9J3VybCgjbiknLz48L3N2Zz4K");
     }
 
-    .page-wrapper { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 4rem 2rem 6rem; overflow-x: hidden; }
+    /* ── Navbar ── */
+    nav.navbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.75rem 3rem;
+      position: relative; z-index: 2;
+    }
+    .nav-logo { font-size: 1.2rem; font-weight: 700; color: var(--clr-white); letter-spacing: -0.01em; }
+    .nav-links { display: flex; align-items: center; gap: 2.25rem; }
+    .nav-links a {
+      color: var(--clr-body); text-decoration: none; font-size: 0.85rem; font-weight: 400;
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover { color: var(--clr-white); }
 
-    .divider { width: 100%; height: 3px; background: var(--clr-accent); margin: 4.5rem 0; }
-    .eyebrow {
-      font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700;
-      color: var(--clr-accent); letter-spacing: 0.14em; text-transform: uppercase;
-      margin-bottom: 1rem;
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      border-radius: 999px; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.01em;
+      text-decoration: none; cursor: pointer; white-space: nowrap;
+      transition: opacity 0.2s ease, background 0.2s ease, border-color 0.2s ease;
     }
-    .section-label { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 0.75rem; }
-    .section-label::before { content: ''; width: 22px; height: 3px; background: var(--clr-accent); flex-shrink: 0; }
-    .section-label h2 {
-      font-family: 'Bebas Neue', 'Inter', sans-serif; font-size: 2.1rem; font-weight: 400;
-      letter-spacing: 0.04em; text-transform: uppercase; color: var(--clr-text); margin: 0;
+    .btn-primary {
+      background: var(--clr-white); color: var(--clr-canvas); border: none;
+      padding: 0.85em 1.9em;
     }
-    .section-sub { font-size: 1rem; color: var(--clr-muted); max-width: 640px; margin-bottom: 2rem; }
+    .btn-primary:hover { opacity: 0.82; }
+    .btn-secondary {
+      background: transparent; color: var(--clr-white); border: 1px solid var(--clr-border);
+      padding: 0.82em 1.85em; font-weight: 600;
+    }
+    .btn-secondary:hover { border-color: var(--clr-white); background: rgba(255,255,255,0.06); }
+    .btn-sm { padding: 0.6em 1.4em; font-size: 0.72rem; }
 
-    .cta-btn {
-      display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75em 1.7em;
-      background: var(--clr-accent); color: var(--clr-on-accent); border: 2px solid var(--clr-accent);
-      font-family: 'Space Mono', monospace; font-size: 0.85rem; font-weight: 700;
-      text-decoration: none; cursor: pointer; letter-spacing: 0.04em; text-transform: uppercase;
-      transition: transform var(--transition), box-shadow var(--transition);
-      box-shadow: 5px 5px 0 hsl(30 25% 3% / 0.9);
-    }
-    .cta-btn:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 hsl(30 25% 3% / 0.9); color: var(--clr-on-accent); }
-
-    .cta-btn-outline {
-      display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75em 1.7em;
-      background: transparent; color: var(--clr-text); border: 2px solid var(--clr-text);
-      font-family: 'Space Mono', monospace; font-size: 0.85rem; font-weight: 700;
-      text-decoration: none; cursor: pointer; letter-spacing: 0.04em; text-transform: uppercase;
-      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition), color var(--transition);
-    }
-    .cta-btn-outline:hover {
-      background: var(--clr-accent); border-color: var(--clr-accent); color: var(--clr-on-accent);
-      transform: translate(-3px, -3px); box-shadow: 5px 5px 0 hsl(30 25% 3% / 0.9);
-    }
-
-    .tag {
-      display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.45em 0.95em;
-      background: var(--clr-accent-l); color: var(--clr-accent);
-      font-family: 'Space Mono', monospace; font-size: 0.72rem; font-weight: 700;
-      letter-spacing: 0.05em; text-transform: uppercase; border: 1.5px solid var(--clr-accent);
-    }
-
-    /* Hero */
+    /* ── Hero ── */
     .hero {
-      display: flex; align-items: center; gap: 3rem; flex-wrap: wrap;
-      padding: 4rem; background: linear-gradient(155deg, var(--clr-card-hi) 0%, var(--clr-card) 55%, hsl(220 9% 11%) 100%);
-      border: 2px solid var(--clr-border); box-shadow: var(--shadow-hard);
-      position: relative; overflow: hidden;
+      display: grid; grid-template-columns: 1.05fr 0.95fr; align-items: center;
+      gap: 3rem; min-height: 78vh; padding: 1rem 3rem 4rem;
+      position: relative; z-index: 2;
     }
-    .hero::before {
-      content: ''; position: absolute; inset: 0;
-      background-image:
-        linear-gradient(115deg, hsl(0 0% 100% / 0.05) 0%, transparent 30%),
-        radial-gradient(circle at 85% 90%, hsl(28 55% 55% / 0.1) 0%, transparent 55%);
-      pointer-events: none;
+    .hero-eyebrow {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--clr-eyebrow); margin-bottom: 1.5rem;
     }
-    .hero-copy { flex: 1 1 420px; position: relative; z-index: 1; }
-    .hero-headline {
-      font-family: 'Bebas Neue', 'Inter', sans-serif; font-size: clamp(2.6rem, 5.4vw, 4rem);
-      font-weight: 400; letter-spacing: 0.02em; line-height: 0.98; text-transform: uppercase;
-      color: var(--clr-text); margin: 0;
+    .hero-title {
+      font-size: clamp(2.75rem, 5vw, 4rem); font-weight: 700; line-height: 1.04;
+      letter-spacing: -0.01em; color: var(--clr-white); text-wrap: balance;
     }
-    .hero-sub { font-size: 1.05rem; color: var(--clr-body); max-width: 480px; margin: 1.5rem 0 0; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 2.25rem; }
+    .hero-sub {
+      margin-top: 1.5rem; max-width: 34rem; font-size: 1rem; line-height: 1.6;
+      color: var(--clr-body); font-weight: 400;
+    }
+    .hero-actions { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
+    .hero-meta {
+      margin-top: 2.25rem; padding-top: 1.5rem; border-top: 1px solid var(--clr-border-soft);
+      max-width: 26rem; font-size: 0.85rem; line-height: 1.6; color: var(--clr-eyebrow);
+    }
 
-    .hero-photo-wrap { position: relative; width: 300px; height: 380px; flex-shrink: 0; z-index: 1; }
-    .hero-photo-block { position: absolute; inset: 14px -14px -14px 14px; background: var(--clr-accent); z-index: 0; }
     .hero-photo {
-      position: relative; z-index: 1; width: 300px; height: 380px; object-fit: cover;
-      object-position: top center; display: block; border: 3px solid var(--clr-bg);
-      outline: 2px solid var(--clr-text); outline-offset: -2px; filter: grayscale(0.15) contrast(1.08);
-      max-width: 100%;
+      position: relative; align-self: stretch; min-height: 480px; border-radius: 12px; overflow: hidden;
     }
-    .hero-badge {
-      position: absolute; z-index: 2; left: -18px; bottom: -18px;
-      background: var(--clr-bg); border: 2px solid var(--clr-accent);
-      box-shadow: 5px 5px 0 hsl(30 25% 3% / 0.9);
-      padding: 0.85rem 1.1rem; display: flex; flex-direction: column; align-items: center; text-align: center;
+    .hero-photo-img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      background-image: url("Man in black.jpg"); background-size: cover; background-position: center 18%;
+      filter: grayscale(1) contrast(1.15);
     }
-    .hero-badge-num {
-      font-family: 'Bebas Neue', 'Inter', sans-serif; font-size: 2.4rem; line-height: 0.9;
-      color: var(--clr-accent);
-    }
-    .hero-badge-label {
-      font-family: 'Space Mono', monospace; font-size: 0.62rem; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase; color: var(--clr-text); margin-top: 0.35rem;
-      white-space: pre-line;
+    .hero-photo-vignette {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 90% 85% at 50% 45%, transparent 45%, var(--clr-canvas) 100%),
+        linear-gradient(90deg, var(--clr-canvas) 0%, transparent 14%, transparent 86%, var(--clr-canvas) 100%),
+        linear-gradient(180deg, var(--clr-canvas) 0%, transparent 12%, transparent 82%, var(--clr-canvas) 100%);
     }
 
-    /* Services */
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-    .service-card {
-      background: linear-gradient(155deg, var(--clr-card-hi) 0%, var(--clr-card) 100%);
-      border: 2px solid var(--clr-border); box-shadow: var(--shadow-card); padding: 2rem;
-      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    /* ── About ── */
+    .about {
+      position: relative; min-height: 92vh; display: flex; align-items: center;
+      padding: 6rem 3rem; overflow: hidden;
     }
-    .service-card:hover { transform: translate(-4px, -4px); border-color: var(--clr-accent); box-shadow: 10px 10px 0 hsl(30 25% 3% / 0.85); }
-    .service-icon {
-      width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
-      background: var(--clr-accent-l); border: 1.5px solid var(--clr-accent); color: var(--clr-accent);
-      margin-bottom: 1.25rem;
+    .about-photo {
+      position: absolute; inset: 0;
+      background-image: url("Back David laid.jpg"); background-size: cover; background-position: center 20%;
+      filter: grayscale(1) contrast(1.12) brightness(0.9);
     }
-    .service-icon svg { width: 24px; height: 24px; }
-    .service-title { font-family: 'Bebas Neue', 'Inter', sans-serif; font-size: 1.6rem; letter-spacing: 0.03em; text-transform: uppercase; margin: 0; }
-    .service-sub {
-      font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: 700; color: var(--clr-accent);
-      letter-spacing: 0.08em; text-transform: uppercase; margin: 0.35rem 0 1rem;
+    .about-overlay {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.4) 30%, rgba(10,10,10,0.75) 100%),
+        linear-gradient(90deg, rgba(10,10,10,0.65) 0%, rgba(10,10,10,0.15) 45%, rgba(10,10,10,0.15) 55%, rgba(10,10,10,0.65) 100%);
     }
-    .service-desc { font-size: 0.95rem; color: var(--clr-body); margin: 0 0 1.25rem; }
-    .service-features { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.6rem; }
-    .service-features li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.88rem; color: var(--clr-muted); }
-    .service-features svg { width: 16px; height: 16px; color: var(--clr-accent); flex-shrink: 0; }
+    .about-grid {
+      position: relative; z-index: 2; width: 100%;
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem;
+    }
+    .about-eyebrow {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+      color: #c9c9c9; margin-bottom: 1.5rem;
+    }
+    .about-title {
+      font-size: clamp(2rem, 3.4vw, 2.75rem); font-weight: 700; line-height: 1.15;
+      color: var(--clr-white); text-wrap: balance;
+    }
+    .about-text { margin-top: 1.5rem; max-width: 32rem; font-size: 1rem; line-height: 1.65; color: #d4d4d4; }
+    .about-subtitle { font-size: 1.35rem; font-weight: 700; color: var(--clr-white); line-height: 1.3; }
+    .about-support { margin-top: 1rem; font-size: 0.92rem; line-height: 1.65; color: #b8b8b8; max-width: 26rem; }
 
-    /* About */
-    .about-row { display: flex; gap: 2.5rem; align-items: stretch; flex-wrap: wrap; }
-    .stat-block {
-      flex: 0 0 200px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
-      background: linear-gradient(155deg, var(--clr-card-hi) 0%, var(--clr-card) 100%);
-      border: 2px solid var(--clr-accent); box-shadow: var(--shadow-card); padding: 2rem;
+    /* ── Services ── */
+    .section { position: relative; z-index: 2; padding: 7rem 3rem; }
+    .eyebrow {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--clr-eyebrow); margin-bottom: 2.5rem;
     }
-    .stat-num { font-family: 'Bebas Neue', 'Inter', sans-serif; font-size: 4.2rem; line-height: 0.85; color: var(--clr-accent); }
-    .stat-label { font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--clr-text); margin-top: 0.75rem; }
-    .about-card {
-      flex: 1 1 420px; background: linear-gradient(155deg, var(--clr-card-hi) 0%, var(--clr-card) 100%);
-      box-shadow: var(--shadow-card); padding: 2rem 2.25rem; border: 2px solid var(--clr-border);
+    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .service-title { font-size: 1.75rem; font-weight: 700; color: var(--clr-white); }
+    .service-kicker {
+      font-size: 0.8rem; font-weight: 500; color: var(--clr-eyebrow);
+      margin-top: 0.6rem; letter-spacing: 0.02em;
     }
-    .about-card p { font-size: 1rem; color: var(--clr-body); line-height: 1.85; margin: 0 0 1rem; max-width: 62ch; }
-    .about-card p:last-child { margin-bottom: 0; }
-    .about-card strong { color: var(--clr-accent); }
+    .service-text { margin-top: 1.25rem; font-size: 0.95rem; line-height: 1.65; color: var(--clr-body); max-width: 30rem; }
 
-    /* Audience */
-    .audience-card {
-      background: linear-gradient(155deg, var(--clr-card-hi) 0%, var(--clr-card) 100%);
-      border: 2px solid var(--clr-border); box-shadow: var(--shadow-card); padding: 2.5rem;
+    /* ── Results ── */
+    .results-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+    .result-num { font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 800; color: var(--clr-white); line-height: 1; letter-spacing: -0.02em; }
+    .result-label {
+      margin-top: 0.85rem; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--clr-eyebrow);
     }
-    .audience-card p { font-size: 1.02rem; color: var(--clr-body); line-height: 1.85; max-width: 68ch; margin: 0 0 1.75rem; }
-    .audience-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; }
 
-    /* Final CTA */
-    .cta-section {
-      background: linear-gradient(155deg, var(--clr-card-hi) 0%, var(--clr-card) 100%);
-      border: 2px solid var(--clr-accent); box-shadow: var(--shadow-card); padding: 2.5rem;
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
+    /* ── Pricing / Booking CTA ── */
+    .cta-block { text-align: left; }
+    .cta-title {
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.1;
+      color: var(--clr-white); max-width: 32rem; text-wrap: balance;
     }
-    .cta-text h3 { font-family: 'Bebas Neue', 'Inter', sans-serif; font-size: 1.8rem; font-weight: 400; letter-spacing: 0.03em; text-transform: uppercase; color: var(--clr-text); margin: 0 0 0.35rem; }
-    .cta-text p { font-size: 0.95rem; color: var(--clr-muted); margin: 0; }
-    .cta-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .cta-sub { margin-top: 1.25rem; font-size: 1rem; color: var(--clr-body); max-width: 30rem; }
+    .cta-actions { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
 
-    footer { margin-top: 5rem; text-align: center; font-family: 'Space Mono', monospace; font-size: 0.76rem; color: var(--clr-muted); letter-spacing: 0.02em; }
-    footer .cta-btn { margin-bottom: 1.25rem; }
+    /* ── Footer ── */
+    footer {
+      position: relative; z-index: 2; padding: 3rem 3rem 3.5rem;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+      border-top: 1px solid var(--clr-border-soft);
+    }
+    footer a { color: var(--clr-body); text-decoration: none; font-size: 0.85rem; }
+    footer a:hover { color: var(--clr-white); }
+    footer p { color: var(--clr-eyebrow); font-size: 0.8rem; }
 
-    @media (max-width: 760px) {
-      .page-wrapper { padding: 2.5rem 1.25rem 4rem; }
-      .hero { padding: 2.5rem 1.5rem; flex-direction: column; }
-      .hero-photo-wrap { width: 240px; height: 300px; }
-      .hero-photo { width: 240px; height: 300px; }
-      .about-row { flex-direction: column; }
-      .stat-block { flex: 1 1 auto; }
-      .cta-section { flex-direction: column; align-items: flex-start; }
+    @media (max-width: 860px) {
+      .frame { padding: 12px; }
+      nav.navbar { padding: 1.25rem 1.5rem; flex-wrap: wrap; gap: 1rem; }
+      .nav-links { order: 3; width: 100%; justify-content: flex-start; gap: 1.25rem; flex-wrap: wrap; }
+      .hero { grid-template-columns: 1fr; padding: 1rem 1.5rem 3rem; min-height: auto; }
+      .hero-photo { min-height: 320px; order: -1; }
+      .about { padding: 4rem 1.5rem; min-height: auto; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .section { padding: 4rem 1.5rem; }
+      .services-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .results-row { grid-template-columns: 1fr; gap: 2rem; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-<div class="collage-bg" aria-hidden="true">
-  <div class="collage-grid">
-    <div class="collage-tile collage-tile--man"></div>
-    <div class="collage-tile collage-tile--back"></div>
-    <div class="collage-tile collage-tile--hand"></div>
-    <div class="collage-tile collage-tile--run"></div>
+<div class="frame">
+  <div class="canvas">
+    <div class="grain"></div>
+
+    <nav class="navbar">
+      <div class="nav-logo">IronCoach</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#results">Results</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+      <a href="mailto:isaac971219@gmail.com" class="btn btn-primary btn-sm">GET IN TOUCH</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="hero-eyebrow">Isaac Vergara Mejia &middot; Fitness Coach, Hamburg</div>
+        <h1 class="hero-title">Train smarter.<br>Get stronger.</h1>
+        <p class="hero-sub">Personal training and online coaching built on five years of real results. No fads &mdash; just a structured plan, consistent accountability, and a coach who shows up for every session.</p>
+        <div class="hero-actions">
+          <a href="https://buy.stripe.com/test_bJedRb0id29o0Cz3aoao800" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="btn-book-hero" aria-label="Book and pay for a coaching session, 50 euros">Book Session &middot; &euro;50</a>
+          <a href="#services" class="btn btn-secondary">See Services</a>
+        </div>
+        <p class="hero-meta">5+ years coaching clients &middot; Personal training in Hamburg &middot; Online coaching worldwide</p>
+      </div>
+      <div class="hero-photo">
+        <div class="hero-photo-img"></div>
+        <div class="hero-photo-vignette"></div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+      <div class="about-photo"></div>
+      <div class="about-overlay"></div>
+      <div class="about-grid">
+        <div>
+          <div class="about-eyebrow">About the Coach</div>
+          <h2 class="about-title">Five years. One method. Real results.</h2>
+          <p class="about-text">I'm Isaac Vergara Mejia &mdash; a Fitness Coach and Wellness Expert with a background in Economics and an MBA. I apply that same rigor to training: every program is built on science-backed methodology, not trends, paired with the accountability most programs skip entirely.</p>
+        </div>
+        <div>
+          <p class="about-subtitle">Discipline, built the same way strength is.</p>
+          <p class="about-support">One rep, one session, one week at a time. Based in Hamburg, Germany &mdash; training clients in person and online, worldwide.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section" id="services">
+      <div class="eyebrow">What I Offer</div>
+      <div class="services-grid">
+        <div>
+          <h3 class="service-title">Personal Training</h3>
+          <p class="service-kicker">In-Person &middot; Hamburg</p>
+          <p class="service-text">One-on-one sessions built around your body, your schedule, and your goals &mdash; full attention, zero guesswork, real accountability in the room with you.</p>
+        </div>
+        <div>
+          <h3 class="service-title">Online Coaching</h3>
+          <p class="service-kicker">Remote &middot; Worldwide</p>
+          <p class="service-text">Full remote coaching for driven men who want structure without stepping into a gym with me. Custom programs, weekly check-ins, direct support seven days a week.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="section" id="results">
+      <div class="eyebrow">The Numbers</div>
+      <div class="results-row">
+        <div>
+          <div class="result-num">5+</div>
+          <div class="result-label">Years Coaching Clients</div>
+        </div>
+        <div>
+          <div class="result-num">100%</div>
+          <div class="result-label">Personalized Programs</div>
+        </div>
+        <div>
+          <div class="result-num">7</div>
+          <div class="result-label">Days a Week Support</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing / Booking -->
+    <section class="section" id="pricing">
+      <div class="cta-block">
+        <div class="eyebrow" style="margin-bottom: 1.5rem;">Pricing</div>
+        <h2 class="cta-title">Ready to start your transformation?</h2>
+        <p class="cta-sub">One coaching session, &euro;50. I'm available for new clients &mdash; in person in Hamburg or online worldwide.</p>
+        <div class="cta-actions">
+          <a href="https://buy.stripe.com/test_bJedRb0id29o0Cz3aoao800" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="btn-book" aria-label="Book and pay for a coaching session, 50 euros">Book Session &middot; &euro;50</a>
+          <a href="mailto:isaac971219@gmail.com" class="btn btn-secondary" id="btn-contacto">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <a href="mailto:isaac971219@gmail.com">isaac971219@gmail.com</a>
+      <p>&copy; 2026 Isaac Vergara Mejia &middot; Made in Hamburg</p>
+    </footer>
+
   </div>
-  <div class="collage-scrim"></div>
-  <div class="collage-grain"></div>
 </div>
-<main class="page-wrapper" role="main">
-
-  <!-- ── Hero ── -->
-  <header class="hero" id="hero">
-    <div class="hero-copy">
-      <div class="eyebrow">Isaac Vergara Mejia &middot; Fitness Coach, Hamburg</div>
-      <h1 class="hero-headline">Rebuild Your Body.<br>Rebuild Your Discipline.</h1>
-      <p class="hero-sub">1-on-1 personal training and online coaching for men who are done making excuses. Five years of real client results, one science-backed method &mdash; built for you.</p>
-      <div class="hero-actions">
-        <a href="https://buy.stripe.com/test_bJedRb0id29o0Cz3aoao800" target="_blank" rel="noopener noreferrer" class="cta-btn" id="btn-book-hero" aria-label="Book and pay for a coaching session, 50 euros">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v3h20V6c0-1.1-.9-2-2-2zM2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-7H2v7zm4-3h4v2H6v-2z"/></svg>
-          Book Session &middot; &euro;50
-        </a>
-        <a href="#services" class="cta-btn-outline">See Services</a>
-      </div>
-    </div>
-    <div class="hero-photo-wrap">
-      <span class="hero-photo-block"></span>
-      <img class="hero-photo" src="Isaac GYM.jpeg" alt="Isaac Vergara Mejia training at the gym" width="300" height="380">
-      <div class="hero-badge">
-        <span class="hero-badge-num">5+</span>
-        <span class="hero-badge-label">Years&#10;Coaching</span>
-      </div>
-    </div>
-  </header>
-
-  <div class="divider"></div>
-
-  <!-- ── Services ── -->
-  <section id="services">
-    <div class="section-label"><h2>Services</h2></div>
-    <p class="section-sub">Two ways to train with me &mdash; same standard, same accountability, whichever fits your life.</p>
-    <div class="services-grid">
-      <article class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M4 9v6M2 10v4M20 9v6M22 10v4M7 12h10"/>
-            <rect x="5.5" y="7" width="3" height="10" rx="1"/>
-            <rect x="15.5" y="7" width="3" height="10" rx="1"/>
-          </svg>
-        </div>
-        <h3 class="service-title">Personal Training</h3>
-        <p class="service-sub">In-Person &middot; Hamburg</p>
-        <p class="service-desc">One-on-one sessions built around your body, your schedule, and your goals &mdash; full attention, zero guesswork, real accountability in the room with you.</p>
-        <ul class="service-features">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg> Custom program design</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg> Form correction &amp; injury prevention</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg> Progress tracked every session</li>
-        </ul>
-      </article>
-
-      <article class="service-card">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="3" y="4" width="18" height="12" rx="1"/>
-            <path d="M2 20h20M9 20l1-4h4l1 4"/>
-          </svg>
-        </div>
-        <h3 class="service-title">Online Coaching</h3>
-        <p class="service-sub">Remote &middot; Worldwide</p>
-        <p class="service-desc">Full remote coaching for driven men who want structure without stepping into a gym with me. Train anywhere, stay accountable everywhere.</p>
-        <ul class="service-features">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg> Custom training &amp; nutrition plans</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg> Weekly check-ins &amp; adjustments</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg> Direct support, 7 days a week</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- ── About ── -->
-  <section id="about">
-    <div class="section-label"><h2>About Isaac</h2></div>
-    <div class="about-row">
-      <div class="stat-block">
-        <span class="stat-num">5+</span>
-        <span class="stat-label">Years Coaching Clients</span>
-      </div>
-      <div class="about-card">
-        <p>I'm <strong>Isaac Vergara Mejia</strong> &mdash; a Fitness Coach and Wellness Expert with over five years of experience helping men rebuild their bodies and their discipline. My background in Economics and an MBA taught me how to build systems that actually work; I apply the same rigor to your training.</p>
-        <p>Every program I build combines science-backed methodology with a direct, motivational coaching style. No fads, no fluff &mdash; just a structured plan, consistent accountability, and the mindset work most programs skip entirely.</p>
-        <p>Based in Hamburg, Germany &mdash; training clients in person and online, worldwide.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- ── Target audience ── -->
-  <section id="audience">
-    <div class="section-label"><h2>Who This Is For</h2></div>
-    <p class="section-sub">Built for men 25&ndash;40 who are ready to stop drifting and start training with purpose.</p>
-    <div class="audience-card">
-      <p>Maybe the desk job killed your energy. Maybe you used to train and lost the routine. Maybe you've never had a real plan to begin with. This program is for men who want to look strong, feel strong, and carry themselves with the discipline that comes from actually showing up &mdash; week after week, with a coach who holds the standard.</p>
-      <div class="audience-chips">
-        <span class="tag">&#10003; Strength</span>
-        <span class="tag">&#10003; Energy</span>
-        <span class="tag">&#10003; Discipline</span>
-        <span class="tag">&#10003; Results</span>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- ── Final CTA ── -->
-  <section id="contact">
-    <div class="cta-section">
-      <div class="cta-text">
-        <h3>Ready to start your transformation?</h3>
-        <p>I'm available for new clients &mdash; in person in Hamburg or online worldwide.</p>
-      </div>
-      <div class="cta-actions">
-        <a href="https://buy.stripe.com/test_bJedRb0id29o0Cz3aoao800" target="_blank" rel="noopener noreferrer" class="cta-btn" id="btn-book" aria-label="Book and pay for a coaching session, 50 euros">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v3h20V6c0-1.1-.9-2-2-2zM2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-7H2v7zm4-3h4v2H6v-2z"/></svg>
-          Book Session &middot; &euro;50
-        </a>
-        <a href="mailto:isaac971219@gmail.com" class="cta-btn-outline" id="btn-contacto" aria-label="Send contact email">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          Get in Touch
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Footer ── -->
-  <footer>
-    <a href="mailto:isaac971219@gmail.com" class="cta-btn" id="btn-footer-contacto" aria-label="Send contact email">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-      isaac971219@gmail.com
-    </a>
-    <p>&copy; 2026 Isaac Vergara Mejia &middot; Made with &hearts; in Hamburg</p>
-  </footer>
-
-</main>
 </body>
 </html>
