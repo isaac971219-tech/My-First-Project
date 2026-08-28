@@ -77,43 +77,54 @@
     .btn-secondary:hover { border-color: var(--clr-white); background: rgba(255,255,255,0.06); }
     .btn-sm { padding: 0.6em 1.4em; font-size: 0.72rem; }
 
-    /* ── Hero: full-bleed looping video ── */
+    /* ── Video card: reusable moderate-size looping video, used in Hero,
+       About, and Results. Bounded (not full-bleed) so a low-res clip
+       never gets stretched past its native size into pixelation. The
+       inner <video> overscans its frame slightly so the JS parallax
+       (translateY, scroll-driven) has room to move without exposing
+       gaps at the top/bottom edges. ── */
+    .video-card {
+      position: relative; width: 100%; max-width: 560px; aspect-ratio: 4 / 5;
+      border-radius: 12px; overflow: hidden; background: var(--clr-canvas);
+      flex-shrink: 0;
+    }
+    .video-card video {
+      position: absolute; left: 0; right: 0; top: -8%; height: 116%; width: 100%;
+      object-fit: cover;
+      filter: saturate(0.6) contrast(1.05) brightness(0.85);
+      transform: translate3d(0, 0, 0);
+      will-change: transform;
+    }
+    .video-card .video-scrim {
+      position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(180deg, rgba(30,30,30,0.08) 0%, rgba(30,30,30,0.4) 100%);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .video-card video { transform: none !important; }
+    }
+
+    /* ── Hero ── */
     .hero {
-      position: relative; min-height: 92vh; display: flex;
-      flex-direction: column; align-items: flex-start; justify-content: center;
-      padding: 6rem 3rem; overflow: hidden; z-index: 2;
+      display: flex; align-items: center; gap: 3rem; flex-wrap: wrap;
+      min-height: 85vh; padding: 2rem 3rem 4rem; position: relative; z-index: 2;
     }
-    .hero-video {
-      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-      object-position: center 25%; filter: grayscale(1) contrast(1.1) brightness(0.82);
-      background: var(--clr-canvas);
-    }
-    .hero-overlay {
-      position: absolute; inset: 0;
-      background:
-        linear-gradient(180deg, rgba(30,30,30,0.6) 0%, rgba(30,30,30,0.35) 32%, rgba(30,30,30,0.78) 100%),
-        linear-gradient(90deg, rgba(30,30,30,0.8) 0%, rgba(30,30,30,0.25) 48%, rgba(30,30,30,0.05) 68%, rgba(30,30,30,0.05) 100%);
-    }
+    .hero-copy { flex: 1 1 420px; }
     .hero-eyebrow {
-      position: relative; z-index: 2;
       font-size: 0.75rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
-      color: #c9c9c9; margin-bottom: 1.5rem;
+      color: var(--clr-eyebrow); margin-bottom: 1.5rem;
     }
     .hero-title {
-      position: relative; z-index: 2;
       font-size: clamp(2.75rem, 5vw, 4rem); font-weight: 700; line-height: 1.04;
       letter-spacing: -0.01em; color: var(--clr-white); text-wrap: balance;
     }
     .hero-sub {
-      position: relative; z-index: 2;
       margin-top: 1.5rem; max-width: 34rem; font-size: 1rem; line-height: 1.6;
-      color: #d4d4d4; font-weight: 400;
+      color: var(--clr-body); font-weight: 400;
     }
-    .hero-actions { position: relative; z-index: 2; display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
+    .hero-actions { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
     .hero-meta {
-      position: relative; z-index: 2;
       margin-top: 2.25rem; padding-top: 1.5rem; border-top: 1px solid var(--clr-border-soft);
-      max-width: 26rem; font-size: 0.85rem; line-height: 1.6; color: #b8b8b8;
+      max-width: 26rem; font-size: 0.85rem; line-height: 1.6; color: var(--clr-eyebrow);
     }
 
     /* ── About ── */
@@ -124,7 +135,7 @@
     .about-photo {
       position: absolute; inset: 0;
       background-image: url("Back David laid.jpg"); background-size: cover; background-position: center 20%;
-      filter: grayscale(1) contrast(1.12) brightness(0.9);
+      filter: saturate(0.6) contrast(1.05) brightness(0.85);
     }
     .about-overlay {
       position: absolute; inset: 0;
@@ -163,47 +174,12 @@
     .service-text { margin-top: 1.25rem; font-size: 0.95rem; line-height: 1.65; color: var(--clr-body); max-width: 30rem; }
 
     /* ── Results ── */
-    .results-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
-    .result-num { font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 800; color: var(--clr-white); line-height: 1; letter-spacing: -0.02em; }
+    .results-grid { display: flex; align-items: stretch; gap: 3.5rem; flex-wrap: wrap; }
+    .results-row { display: flex; flex-direction: column; justify-content: space-between; gap: 2rem; flex: 1 1 280px; }
+    .result-num { font-size: clamp(2.5rem, 4.5vw, 3.5rem); font-weight: 800; color: var(--clr-white); line-height: 1; letter-spacing: -0.02em; }
     .result-label {
       margin-top: 0.85rem; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em;
       text-transform: uppercase; color: var(--clr-eyebrow);
-    }
-
-    /* ── Motion (scroll-driven treadmill photo) ── */
-    .motion {
-      position: relative; min-height: 62vh; overflow: hidden;
-    }
-    .motion-photo {
-      position: absolute; top: -15%; left: 0; right: 0; bottom: -15%;
-      background-image: url("Treadmill%20run.jpg");
-      background-size: cover; background-position: center 30%;
-      filter: grayscale(1) contrast(1.15) brightness(0.82);
-      transform: translate3d(0, 0, 0) scale(1.08);
-      will-change: transform;
-    }
-    .motion-overlay {
-      position: absolute; inset: 0;
-      background:
-        linear-gradient(180deg, rgba(30,30,30,0.7) 0%, rgba(30,30,30,0.1) 32%, rgba(30,30,30,0.1) 68%, rgba(30,30,30,0.7) 100%),
-        linear-gradient(90deg, rgba(30,30,30,0.5) 0%, transparent 20%, transparent 80%, rgba(30,30,30,0.5) 100%);
-    }
-    .motion-label {
-      position: relative; z-index: 2; height: 100%; min-height: 62vh;
-      display: flex; align-items: flex-end; padding: 3.5rem 3rem;
-    }
-    .motion-eyebrow {
-      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
-      color: #d4d4d4;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .motion-photo { transform: none !important; }
-    }
-
-    @media (max-width: 860px) {
-      .motion { min-height: 46vh; }
-      .motion-label { min-height: 46vh; padding: 2rem 1.5rem; }
     }
 
     /* ── Pricing / Booking CTA ── */
@@ -229,12 +205,13 @@
       .frame { padding: 12px; }
       nav.navbar { padding: 1.25rem 1.5rem; flex-wrap: wrap; gap: 1rem; }
       .nav-links { order: 3; width: 100%; justify-content: flex-start; gap: 1.25rem; flex-wrap: wrap; }
-      .hero { padding: 5rem 1.5rem 3rem; min-height: 80vh; }
+      .hero { flex-direction: column; padding: 5rem 1.5rem 3rem; min-height: auto; }
+      .hero .video-card { order: -1; max-width: 100%; }
       .about { padding: 4rem 1.5rem; min-height: auto; }
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .section { padding: 4rem 1.5rem; }
       .services-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .results-row { grid-template-columns: 1fr; gap: 2rem; }
+      .results-grid { flex-direction: column; }
       footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
     }
   </style>
@@ -257,16 +234,22 @@
 
     <!-- Hero -->
     <section class="hero">
-      <video class="hero-video" muted playsinline poster="gym photo.jpg" aria-hidden="true"></video>
-      <div class="hero-overlay"></div>
-      <div class="hero-eyebrow">Isaac Vergara Mejia &middot; Fitness Coach, Hamburg</div>
-      <h1 class="hero-title">Train smarter.<br>Get stronger.</h1>
-      <p class="hero-sub">Personal training and online coaching built on five years of real results. No fads &mdash; just a structured plan, consistent accountability, and a coach who shows up for every session.</p>
-      <div class="hero-actions">
-        <a href="https://buy.stripe.com/test_bJedRb0id29o0Cz3aoao800" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="btn-book-hero" aria-label="Book and pay for a coaching session, 50 euros">Book Session &middot; &euro;50</a>
-        <a href="#services" class="btn btn-secondary">See Services</a>
+      <div class="hero-copy">
+        <div class="hero-eyebrow">Isaac Vergara Mejia &middot; Fitness Coach, Hamburg</div>
+        <h1 class="hero-title">Train smarter.<br>Get stronger.</h1>
+        <p class="hero-sub">Personal training and online coaching built on five years of real results. No fads &mdash; just a structured plan, consistent accountability, and a coach who shows up for every session.</p>
+        <div class="hero-actions">
+          <a href="https://buy.stripe.com/test_bJedRb0id29o0Cz3aoao800" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="btn-book-hero" aria-label="Book and pay for a coaching session, 50 euros">Book Session &middot; &euro;50</a>
+          <a href="#services" class="btn btn-secondary">See Services</a>
+        </div>
+        <p class="hero-meta">5+ years coaching clients &middot; Personal training in Hamburg &middot; Online coaching worldwide</p>
       </div>
-      <p class="hero-meta">5+ years coaching clients &middot; Personal training in Hamburg &middot; Online coaching worldwide</p>
+      <div class="video-card">
+        <video muted loop autoplay playsinline poster="gym photo.jpg" aria-hidden="true">
+          <source src="Video Pull ups.mp4" type="video/mp4">
+        </video>
+        <div class="video-scrim"></div>
+      </div>
     </section>
 
     <!-- About -->
@@ -280,7 +263,13 @@
           <p class="about-text">I'm Isaac Vergara Mejia &mdash; a Fitness Coach and Wellness Expert with a background in Economics and an MBA. I apply that same rigor to training: every program is built on science-backed methodology, not trends, paired with the accountability most programs skip entirely.</p>
         </div>
         <div>
-          <p class="about-subtitle">Discipline, built the same way strength is.</p>
+          <div class="video-card">
+            <video muted loop autoplay playsinline poster="brutalismus gym 1.jpg" aria-hidden="true">
+              <source src="Isaac biceps.mp4" type="video/mp4">
+            </video>
+            <div class="video-scrim"></div>
+          </div>
+          <p class="about-subtitle" style="margin-top: 2rem;">Discipline, built the same way strength is.</p>
           <p class="about-support">One rep, one session, one week at a time. Based in Hamburg, Germany &mdash; training clients in person and online, worldwide.</p>
         </div>
       </div>
@@ -306,28 +295,27 @@
     <!-- Results -->
     <section class="section" id="results">
       <div class="eyebrow">The Numbers</div>
-      <div class="results-row">
-        <div>
-          <div class="result-num">5+</div>
-          <div class="result-label">Years Coaching Clients</div>
+      <div class="results-grid">
+        <div class="video-card">
+          <video muted loop autoplay playsinline poster="brutalismus gym 2.jpg" aria-hidden="true">
+            <source src="Video Lads.mp4" type="video/mp4">
+          </video>
+          <div class="video-scrim"></div>
         </div>
-        <div>
-          <div class="result-num">100%</div>
-          <div class="result-label">Personalized Programs</div>
+        <div class="results-row">
+          <div>
+            <div class="result-num">5+</div>
+            <div class="result-label">Years Coaching Clients</div>
+          </div>
+          <div>
+            <div class="result-num">100%</div>
+            <div class="result-label">Personalized Programs</div>
+          </div>
+          <div>
+            <div class="result-num">7</div>
+            <div class="result-label">Days a Week Support</div>
+          </div>
         </div>
-        <div>
-          <div class="result-num">7</div>
-          <div class="result-label">Days a Week Support</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Motion -->
-    <section class="motion" aria-hidden="true">
-      <div class="motion-photo" data-parallax></div>
-      <div class="motion-overlay"></div>
-      <div class="motion-label">
-        <div class="motion-eyebrow">Consistency in motion</div>
       </div>
     </section>
 
@@ -353,83 +341,61 @@
 </div>
 
 <script>
-  // Scroll-driven parallax on the treadmill photo: the image drifts with
-  // scroll position (not scroll delta), so it moves fluidly both when
-  // scrolling down and when scrolling back up, and always tracks exactly
-  // where the user is on the page.
+  // Video cards (Hero, About, Results): each one gets independent
+  // scroll-driven parallax (translateY at a slower rate than the page,
+  // via requestAnimationFrame — not background-attachment:fixed, which
+  // Safari/iOS handles unreliably) and IntersectionObserver-gated
+  // playback, so only the clip currently on screen is actually decoding.
+  // prefers-reduced-motion disables both: parallax and autoplay.
   (function () {
-    var section = document.querySelector('.motion');
-    var photo = document.querySelector('.motion-photo');
-    if (!section || !photo) return;
+    var cards = document.querySelectorAll('.video-card');
+    if (!cards.length) return;
 
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduceMotion) return;
+    var range = 22; // px of vertical travel each direction
 
-    var ticking = false;
-    var active = false;
-    var range = 70; // px of vertical travel, matches the -15%/-15% bleed above
+    cards.forEach(function (card) {
+      var video = card.querySelector('video');
+      if (!video) return;
 
-    function update() {
-      var rect = section.getBoundingClientRect();
-      var vh = window.innerHeight || document.documentElement.clientHeight;
-      // progress goes 0 -> 1 as the section travels through the viewport
-      var progress = 1 - (rect.top + rect.height) / (vh + rect.height);
-      progress = Math.min(1, Math.max(0, progress));
-      var offset = (progress - 0.5) * range * 2;
-      photo.style.transform = 'translate3d(0,' + offset.toFixed(2) + 'px,0) scale(1.08)';
-      ticking = false;
-    }
-
-    function onScroll() {
-      if (!ticking) {
-        window.requestAnimationFrame(update);
-        ticking = true;
+      if (reduceMotion) {
+        video.removeAttribute('autoplay');
+        video.pause();
+        return;
       }
-    }
 
-    if ('IntersectionObserver' in window) {
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting && !active) {
-            active = true;
-            window.addEventListener('scroll', onScroll, { passive: true });
-            update();
-          } else if (!entry.isIntersecting && active) {
-            active = false;
-            window.removeEventListener('scroll', onScroll);
-          }
-        });
-      }, { rootMargin: '25% 0px 25% 0px' });
-      observer.observe(section);
-    } else {
+      if ('IntersectionObserver' in window) {
+        var playObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              video.play().catch(function () {});
+            } else {
+              video.pause();
+            }
+          });
+        }, { threshold: 0.15 });
+        playObserver.observe(card);
+      }
+
+      var ticking = false;
+      function update() {
+        var rect = card.getBoundingClientRect();
+        var vh = window.innerHeight || document.documentElement.clientHeight;
+        var progress = 1 - (rect.top + rect.height) / (vh + rect.height);
+        progress = Math.min(1, Math.max(0, progress));
+        var offset = (progress - 0.5) * range * 2;
+        video.style.transform = 'translate3d(0,' + offset.toFixed(2) + 'px,0)';
+        ticking = false;
+      }
+      function onScroll() {
+        if (!ticking) {
+          window.requestAnimationFrame(update);
+          ticking = true;
+        }
+      }
       window.addEventListener('scroll', onScroll, { passive: true });
-    }
-
-    update();
-  })();
-
-  // Hero background: cycles through a playlist of muted clips, one <video>
-  // element at a time, advancing on 'ended' so it loops across the set
-  // indefinitely. Users with prefers-reduced-motion see only the poster.
-  (function () {
-    var video = document.querySelector('.hero-video');
-    if (!video) return;
-
-    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduceMotion) return;
-
-    var playlist = ['Isaac biceps.mp4', 'Video Lads.mp4', 'Video Pull ups.mp4'];
-    var i = 0;
-
-    function playNext() {
-      video.src = playlist[i % playlist.length];
-      i++;
-      video.load();
-      video.play().catch(function () {});
-    }
-
-    video.addEventListener('ended', playNext);
-    playNext();
+      update();
+    });
   })();
 </script>
 </body>
