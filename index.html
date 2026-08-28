@@ -86,8 +86,13 @@
     .video-card {
       position: relative; width: 100%; max-width: 560px; aspect-ratio: 4 / 5;
       border-radius: 12px; overflow: hidden; background: var(--clr-canvas);
-      flex-shrink: 0;
+      flex-shrink: 0; margin: 0 auto;
     }
+    /* Back/pull-ups clip (Hero) gets more visual weight than the other
+       two — moderate bump (560px -> 720px), not extreme: it's the
+       lowest native-resolution clip of the three (464x832 vs 576x1024),
+       so oversizing it further would visibly soften it. */
+    .video-card--featured { max-width: 720px; }
     .video-card video {
       position: absolute; left: 0; right: 0; top: -8%; height: 116%; width: 100%;
       object-fit: cover;
@@ -103,38 +108,40 @@
       .video-card video { transform: none !important; }
     }
 
-    /* ── Base background layer: subtle full-section photo texture, sits
-       behind ALL content (including video-cards) via z-index:-1 inside
-       each section's own positioned stacking context. Low-opacity via a
-       baked-in dark tint (not the `opacity` property) so it never lifts
-       above the video-cards or fights text legibility. Same color
-       treatment as the rest of the site (saturate/contrast/brightness,
-       no full grayscale). Does not touch the hero/about/results video
-       cards in any way. ── */
-    .hero::before {
-      content: ''; position: absolute; inset: 0; z-index: -1;
+    /* ── Base background texture: ONE continuous layer spanning the whole
+       page (absolutely positioned to match .canvas's full flow-height),
+       sitting behind everything — nav, hero, every section, footer, and
+       the video-cards. Three photos stack as soft-masked bands (each
+       faded to transparent at its own top/bottom edge via mask-image)
+       with generous overlap, so neighboring photos crossfade into each
+       other instead of showing a hard seam. A single shared dark tint
+       (.page-texture::after) sits above all three bands so the low
+       opacity (~22% image visible) reads as one uniform layer instead of
+       double-darkening in the overlap zones. Static — intentionally NOT
+       part of the video-card parallax script below. Same
+       saturate/contrast/brightness treatment as the rest of the site. ── */
+    .page-texture { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+    .page-texture-layer {
+      position: absolute; left: 0; right: 0;
       background-size: cover; background-position: center;
       filter: saturate(0.6) contrast(1.05) brightness(0.85);
-      background-image:
-        linear-gradient(rgba(30,30,30,0.78), rgba(30,30,30,0.78)),
-        url("brutalismus gym 2.jpg");
     }
-    #services::before {
-      content: ''; position: absolute; inset: 0; z-index: -1;
-      background-size: cover; background-position: center;
-      filter: saturate(0.6) contrast(1.05) brightness(0.85);
-      background-image:
-        linear-gradient(rgba(30,30,30,0.78), rgba(30,30,30,0.78)),
-        url("gym photo.jpg");
+    .pt-1 {
+      top: 0%; height: 44%; background-image: url("brutalismus gym 2.jpg");
+      -webkit-mask-image: linear-gradient(to bottom, black 0%, black 65%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 0%, black 65%, transparent 100%);
     }
-    footer::before {
-      content: ''; position: absolute; inset: 0; z-index: -1;
-      background-size: cover; background-position: center;
-      filter: saturate(0.6) contrast(1.05) brightness(0.85);
-      background-image:
-        linear-gradient(rgba(30,30,30,0.78), rgba(30,30,30,0.78)),
-        url("brutalismus gym 1.jpg");
+    .pt-2 {
+      top: 28%; height: 44%; background-image: url("gym photo.jpg");
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%);
     }
+    .pt-3 {
+      top: 56%; height: 44%; background-image: url("brutalismus gym 1.jpg");
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 35%, black 100%);
+      mask-image: linear-gradient(to bottom, transparent 0%, black 35%, black 100%);
+    }
+    .page-texture::after { content: ''; position: absolute; inset: 0; background: rgba(30,30,30,0.78); }
 
     /* ── Hero ── */
     .hero {
@@ -252,6 +259,11 @@
 <body>
 <div class="frame">
   <div class="canvas">
+    <div class="page-texture" aria-hidden="true">
+      <div class="page-texture-layer pt-1"></div>
+      <div class="page-texture-layer pt-2"></div>
+      <div class="page-texture-layer pt-3"></div>
+    </div>
     <div class="grain"></div>
 
     <nav class="navbar">
@@ -277,7 +289,7 @@
         </div>
         <p class="hero-meta">5+ years coaching clients &middot; Personal training in Hamburg &middot; Online coaching worldwide</p>
       </div>
-      <div class="video-card">
+      <div class="video-card video-card--featured">
         <video muted loop autoplay playsinline poster="gym photo.jpg" aria-hidden="true">
           <source src="Video Pull ups.mp4" type="video/mp4">
         </video>

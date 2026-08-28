@@ -21,27 +21,35 @@ Estilo editorial cinematográfico en blanco y negro atenuado: marco exterior gri
 ### Video de fondo (hero / about / results)
 
 Tres secciones tienen su propio video en loop personal de Isaac, repartido así:
-- **Hero** → `Video Pull ups.mp4`
+- **Hero** → `Video Pull ups.mp4` (espalda/pull-ups) — el video destacado, ver abajo
 - **About** → `Isaac biceps.mp4`
 - **Results** → `Video Lads.mp4`
 
+Resolución nativa (verificada leyendo el box `tkhd` de cada MP4 — `Video Pull ups.mp4` es, de los tres, el de **menor** resolución):
+- `Video Pull ups.mp4`: 464×832
+- `Isaac biceps.mp4` / `Video Lads.mp4`: 576×1024
+
 Cada uno vive dentro de un componente reutilizable `.video-card`: contenedor acotado (`max-width: 560px`, `aspect-ratio: 4/5`, `border-radius: 12px`) — **nunca full-bleed a pantalla completa**, para evitar que un clip de baja resolución se vea pixelado al estirarse. El `<video>` interior overscanea un poco su marco (`top:-8%; height:116%`) para dar espacio al parallax sin dejar huecos.
 
-**Parallax:** implementado en JS puro (`translate3d` actualizado con `requestAnimationFrame` en scroll, mismo patrón para los 3 `.video-card`) — deliberadamente NO se usa `background-attachment: fixed` (poco confiable en Safari/iOS). Respeta `prefers-reduced-motion`: si está activo, se desactiva el parallax y el autoplay, dejando solo el poster estático.
+El video del Hero (`Video Pull ups.mp4`) lleva además la clase `.video-card--featured`, que sube `max-width` a `720px` para darle más protagonismo que a los otros dos — un aumento moderado (no mayor) precisamente porque es el clip de menor resolución nativa; subirlo más allá empezaría a notarse borroso.
+
+**Parallax:** implementado en JS puro (`translate3d` actualizado con `requestAnimationFrame` en scroll) y aplicado **únicamente a los `.video-card`** (el selector del script es `document.querySelectorAll('.video-card')`) — deliberadamente NO se usa `background-attachment: fixed` (poco confiable en Safari/iOS). Respeta `prefers-reduced-motion`: si está activo, se desactiva el parallax y el autoplay, dejando solo el poster estático. La capa de fondo general (ver abajo) queda fuera de este selector a propósito, así que no tiene ningún parallax.
 
 **Rendimiento:** cada video usa `IntersectionObserver` para reproducirse solo cuando su sección está en el viewport y pausarse al salir — evita tener 3 videos decodificando simultáneamente sin necesidad. Atributos `autoplay muted loop playsinline` en el HTML como base.
 
 **Nota de verificación:** el entorno de automatización de navegador usado durante el desarrollo (Claude in Chrome) no logra decodificar video en absoluto — se confirmó probando incluso un video de referencia externo conocido (MDN), aislado del código del proyecto, que falló igual. Los 3 archivos de video se verificaron como MP4 válidos (H.264, moov atom al inicio, fast-start) vía inspección de bytes; el comportamiento real de autoplay/parallax debe confirmarse en un navegador normal (o en el sitio ya publicado en GitHub Pages).
 
-### Capa de fondo general (textura de página)
+### Capa de fondo general (textura de página, sin cortes)
 
-Además de los 3 videos, las mismas 3 fotos "gym" se usan también como **capa de fondo general** detrás de TODO (incluidos los video-cards), vía pseudo-elementos `::before` con `z-index: -1` dentro de cada sección — nunca modifican ni interfieren con los videos. Repartidas para que se noten sutilmente en las zonas sin video, evitando repetir la misma imagen que ya aparece como poster de video en esa sección:
+Las mismas 3 fotos "gym" forman además una **única capa de fondo continua** (`.page-texture`, con tres `.page-texture-layer` dentro: `.pt-1`/`.pt-2`/`.pt-3`) que cubre todo el alto de `.canvas` desde el principio — detrás de absolutamente todo, incluidos los video-cards (`z-index: 0` contra el `z-index: 2` de nav/secciones/footer). Es intencionalmente **estática**: al no llevar la clase `.video-card`, el script de parallax nunca la toca.
 
-- **Hero** → `brutalismus gym 2.jpg`
-- **Services** → `gym photo.jpg`
-- **Footer** → `brutalismus gym 1.jpg`
+Cada capa cubre ~44% del alto total, con un solapamiento generoso (~16%) entre capas consecutivas, y cada una tiene su propio `mask-image: linear-gradient(...)` que la desvanece a transparente en sus bordes — así una foto se disuelve suavemente en la siguiente en vez de cortar en seco. Un único overlay compartido (`.page-texture::after`, `rgba(30,30,30,0.78)`) va por encima de las tres para que la opacidad (~22% de imagen visible) se vea uniforme y no se oscurezca de más en las zonas de solape:
 
-Opacidad baja lograda con un tinte oscuro horneado en el propio `background-image` (`linear-gradient(rgba(30,30,30,0.78), rgba(30,30,30,0.78))` sobre la foto, ≈22% de imagen visible) en vez de la propiedad `opacity`, mismo filtro `saturate(0.6) contrast(1.05) brightness(0.85)` que el resto del sitio.
+- **`.pt-1`** (arriba, 0%–44%) → `brutalismus gym 2.jpg`
+- **`.pt-2`** (medio, 28%–72%) → `gym photo.jpg`
+- **`.pt-3`** (abajo, 56%–100%) → `brutalismus gym 1.jpg`
+
+Mismo filtro `saturate(0.6) contrast(1.05) brightness(0.85)` que el resto del sitio.
 
 ## Pagos
 
