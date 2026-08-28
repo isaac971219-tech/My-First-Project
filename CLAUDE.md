@@ -33,6 +33,16 @@ Cada uno vive dentro de un componente reutilizable `.video-card`: contenedor aco
 
 **Nota de verificación:** el entorno de automatización de navegador usado durante el desarrollo (Claude in Chrome) no logra decodificar video en absoluto — se confirmó probando incluso un video de referencia externo conocido (MDN), aislado del código del proyecto, que falló igual. Los 3 archivos de video se verificaron como MP4 válidos (H.264, moov atom al inicio, fast-start) vía inspección de bytes; el comportamiento real de autoplay/parallax debe confirmarse en un navegador normal (o en el sitio ya publicado en GitHub Pages).
 
+### Capa de fondo general (textura de página)
+
+Además de los 3 videos, las mismas 3 fotos "gym" se usan también como **capa de fondo general** detrás de TODO (incluidos los video-cards), vía pseudo-elementos `::before` con `z-index: -1` dentro de cada sección — nunca modifican ni interfieren con los videos. Repartidas para que se noten sutilmente en las zonas sin video, evitando repetir la misma imagen que ya aparece como poster de video en esa sección:
+
+- **Hero** → `brutalismus gym 2.jpg`
+- **Services** → `gym photo.jpg`
+- **Footer** → `brutalismus gym 1.jpg`
+
+Opacidad baja lograda con un tinte oscuro horneado en el propio `background-image` (`linear-gradient(rgba(30,30,30,0.78), rgba(30,30,30,0.78))` sobre la foto, ≈22% de imagen visible) en vez de la propiedad `opacity`, mismo filtro `saturate(0.6) contrast(1.05) brightness(0.85)` que el resto del sitio.
+
 ## Pagos
 
 Botón "Book Session · €50" enlaza a un **Stripe Payment Link** (modo test/sandbox) — no requiere backend ni API keys en el código. Antes de producción, reemplazar por un Payment Link en modo Live desde el Stripe Dashboard.
