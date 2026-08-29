@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Isaac Vergara Mejia — Fitness Coach & Wellness Expert based in Hamburg, Germany. 1-on-1 personal training and online coaching." />
-<title>Isaac Vergara Mejia | Fitness Coach &amp; Wellness</title>
+<title>Isaac / IronCoach | Fitness Coach Hamburg</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -45,36 +45,41 @@ html{scroll-behavior:smooth}
 
   <nav style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:1rem clamp(1.25rem,4vw,3.5rem);background:rgba(20,20,20,0.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,0.08)">
     <a href="#top" style="font-family:Anton,Impact,sans-serif;font-size:1.25rem;letter-spacing:0.02em;color:#fff;text-decoration:none;text-transform:uppercase">Isaac<span style="color:#B08D57;margin:0 0.45rem;font-weight:400">/</span><span style="color:#B08D57">IronCoach</span></a>
-    <div style="display:flex;align-items:center;gap:clamp(1rem,2.5vw,2rem);flex-wrap:wrap">
-      <a href="#about" style="color:#a8a8a8;text-decoration:none;font-size:0.82rem;letter-spacing:0.04em;text-transform:uppercase" class="hv1">About</a>
-      <a href="#services" style="color:#a8a8a8;text-decoration:none;font-size:0.82rem;letter-spacing:0.04em;text-transform:uppercase" class="hv2">Services</a>
-      <a href="#results" style="color:#a8a8a8;text-decoration:none;font-size:0.82rem;letter-spacing:0.04em;text-transform:uppercase" class="hv3">Results</a>
-      <a href="#pricing" style="color:#a8a8a8;text-decoration:none;font-size:0.82rem;letter-spacing:0.04em;text-transform:uppercase" class="hv4">Pricing</a>
-      <a href="https://buy.stripe.com/test_bJedRb0id29o0Cz3aoao800" target="_blank" rel="noopener noreferrer" style="background:#B08D57;color:#141414;text-decoration:none;font-weight:700;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.75em 1.5em;border-radius:999px;white-space:nowrap;transition:transform .18s ease,box-shadow .18s ease" class="hv5">Book &middot; &euro;50</a>
+    <div style="display:flex;align-items:center;gap:clamp(0.9rem,2.2vw,1.9rem);flex-wrap:wrap">
+      <a href="#about" data-i18n="nav.about" style="color:#a8a8a8;text-decoration:none;font-size:0.82rem;letter-spacing:0.04em;text-transform:uppercase" class="hv1">About</a>
+      <a href="#services" data-i18n="nav.services" style="color:#a8a8a8;text-decoration:none;font-size:0.82rem;letter-spacing:0.04em;text-transform:uppercase" class="hv2">Services</a>
+      <a href="#results" data-i18n="nav.results" style="color:#a8a8a8;text-decoration:none;font-size:0.82rem;letter-spacing:0.04em;text-transform:uppercase" class="hv3">Results</a>
+      <a href="#pricing" data-i18n="nav.pricing" style="color:#a8a8a8;text-decoration:none;font-size:0.82rem;letter-spacing:0.04em;text-transform:uppercase" class="hv4">Pricing</a>
+      <div style="display:flex;align-items:center;gap:0.15rem;padding:0.2rem;border:1px solid rgba(255,255,255,0.16);border-radius:999px">
+        <button type="button" data-lang="en" style="background:transparent;border:0;color:#a8a8a8;font-family:inherit;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;padding:0.45em 0.75em;border-radius:999px;cursor:pointer;transition:background .2s ease,color .2s ease">EN</button>
+        <button type="button" data-lang="es" style="background:transparent;border:0;color:#a8a8a8;font-family:inherit;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;padding:0.45em 0.75em;border-radius:999px;cursor:pointer;transition:background .2s ease,color .2s ease">ES</button>
+        <button type="button" data-lang="de" style="background:transparent;border:0;color:#a8a8a8;font-family:inherit;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;padding:0.45em 0.75em;border-radius:999px;cursor:pointer;transition:background .2s ease,color .2s ease">DE</button>
+      </div>
+      <a href="https://buy.stripe.com/test_9B614paWRcO2fxtbGUao801" target="_blank" rel="noopener noreferrer" data-i18n="nav.book" style="background:#B08D57;color:#141414;text-decoration:none;font-weight:700;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.75em 1.5em;border-radius:999px;white-space:nowrap;transition:transform .18s ease,box-shadow .18s ease" class="hv5">Book &middot; &euro;200</a>
     </div>
   </nav>
 
   <section id="top" style="position:relative;min-height:88vh;display:flex;align-items:center;padding:clamp(3rem,7vw,6rem) clamp(1.25rem,4vw,3.5rem) clamp(3rem,6vw,5rem);overflow:hidden">
-    <div style="position:absolute;inset:0;background-image:url('brutalismus gym 4.jpg');background-size:cover;background-position:center 25%;filter:saturate(0.35) contrast(1.1) brightness(0.55)"></div>
-    <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,20,20,0.94) 0%,rgba(20,20,20,0.78) 45%,rgba(20,20,20,0.5) 100%)"></div>
+    <div style="position:absolute;inset:0;background-image:url('brutalismus gym 4.jpg');background-size:cover;background-position:center 30%;background-attachment:fixed;filter:saturate(1.15) sepia(0.06) contrast(1.05) brightness(0.68)"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,20,20,0.92) 0%,rgba(20,20,20,0.7) 45%,rgba(20,20,20,0.4) 100%)"></div>
     <div style="position:relative;z-index:2;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(2rem,5vw,4rem);align-items:center;width:100%;max-width:1400px;margin:0 auto">
       <div data-reveal="">
         <div style="display:inline-flex;align-items:center;gap:0.6rem;font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#B08D57;margin-bottom:1.75rem">
-          <span style="display:block;width:28px;height:1px;background:#B08D57"></span>Fitness Coach &middot; Hamburg
+          <span style="display:block;width:28px;height:1px;background:#B08D57"></span><span data-i18n="hero.eyebrow">Fitness Coach &middot; Hamburg</span>
         </div>
-        <h1 style="font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(3.2rem,8.5vw,7rem);line-height:0.9;letter-spacing:-0.01em;text-transform:uppercase;margin:0;text-wrap:balance">Train smarter.<br />Get <span style="color:#B08D57">stronger</span>.</h1>
-        <p style="margin:1.75rem 0 0;max-width:34rem;font-size:1.02rem;line-height:1.65;color:#b4b4b4;text-wrap:pretty">Personal training and online coaching built on five years of real results. No fads &mdash; just a structured plan, consistent accountability, and a coach who shows up for every session.</p>
+        <h1 data-i18n="hero.title" data-i18n-html="" style="font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(3.2rem,8.5vw,7rem);line-height:0.9;letter-spacing:-0.01em;text-transform:uppercase;margin:0;text-wrap:balance">Train smarter.<br />Get <span style="color:#B08D57">stronger</span>.</h1>
+        <p data-i18n="hero.lead" style="margin:1.75rem 0 0;max-width:34rem;font-size:1.02rem;line-height:1.65;color:#b4b4b4;text-wrap:pretty">Personal training and online coaching built on five years of fitness experience. No fads &mdash; just a structured plan, consistent accountability, and a coach who shows up for every session.</p>
         <div style="display:flex;gap:0.9rem;margin-top:2.5rem;flex-wrap:wrap">
-          <a href="https://buy.stripe.com/test_bJedRb0id29o0Cz3aoao800" target="_blank" rel="noopener noreferrer" style="background:#B08D57;color:#141414;text-decoration:none;font-weight:700;font-size:0.85rem;letter-spacing:0.04em;padding:1.05em 2.2em;border-radius:999px;transition:transform .18s ease,box-shadow .18s ease" class="hv6">Book Session &middot; &euro;50</a>
-          <a href="#services" style="background:transparent;color:#fff;text-decoration:none;font-weight:600;font-size:0.85rem;padding:1.05em 2.2em;border-radius:999px;border:1px solid rgba(255,255,255,0.3);transition:background .2s ease,border-color .2s ease" class="hv7">See Services</a>
+          <a href="https://buy.stripe.com/test_9B614paWRcO2fxtbGUao801" target="_blank" rel="noopener noreferrer" data-i18n="hero.cta1" style="background:#B08D57;color:#141414;text-decoration:none;font-weight:700;font-size:0.85rem;letter-spacing:0.04em;padding:1.05em 2.2em;border-radius:999px;transition:transform .18s ease,box-shadow .18s ease" class="hv6">Book Session &middot; &euro;200</a>
+          <a href="#services" data-i18n="hero.cta2" style="background:transparent;color:#fff;text-decoration:none;font-weight:600;font-size:0.85rem;padding:1.05em 2.2em;border-radius:999px;border:1px solid rgba(255,255,255,0.3);transition:background .2s ease,border-color .2s ease" class="hv7">See Services</a>
         </div>
-        <p style="margin:2.5rem 0 0;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.12);max-width:28rem;font-size:0.82rem;line-height:1.6;color:#7d7d7d">5+ years coaching clients &middot; Personal training in Hamburg &middot; Online coaching worldwide</p>
+        <p data-i18n="hero.strip" style="margin:2.5rem 0 0;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.12);max-width:28rem;font-size:0.82rem;line-height:1.6;color:#7d7d7d">5+ years of fitness experience &middot; Personal training in Hamburg &middot; Online coaching worldwide</p>
       </div>
       <div data-reveal="" style="position:relative;width:100%;max-width:520px;aspect-ratio:4/5;border-radius:14px;overflow:hidden;margin:0 auto;background:#1e1e1e url('gym photo.jpg') center/cover no-repeat;box-shadow:0 30px 80px rgba(0,0,0,0.5)">
-        <video muted="" loop="" autoplay="" playsinline="" poster="gym photo.jpg" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:transparent;filter:saturate(0.55) contrast(1.05) brightness(0.9)">
+        <video muted="" loop="" autoplay="" playsinline="" poster="gym photo.jpg" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:transparent;filter:saturate(1.05) contrast(1.03) brightness(0.97)">
           <source src="Video Pull ups.mp4" type="video/mp4" />
         </video>
-        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,0.05),rgba(20,20,20,0.45))"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,0.05),rgba(20,20,20,0.42))"></div>
       </div>
     </div>
   </section>
@@ -82,74 +87,78 @@ html{scroll-behavior:smooth}
   <div style="border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);background:#B08D57;overflow:hidden;padding:0.85rem 0">
     <div style="display:flex;width:max-content;animation:marquee 26s linear infinite">
       <div style="display:flex;gap:2.5rem;padding-right:2.5rem;font-family:Anton,Impact,sans-serif;font-size:0.95rem;letter-spacing:0.14em;text-transform:uppercase;color:#141414;white-space:nowrap">
-        <span>Strength</span><span>&bull;</span><span>Accountability</span><span>&bull;</span><span>Nutrition</span><span>&bull;</span><span>Hamburg</span><span>&bull;</span><span>Online Worldwide</span><span>&bull;</span><span>No Excuses</span><span>&bull;</span>
+        <span data-i18n="m.1">Strength</span><span>&bull;</span><span data-i18n="m.2">Accountability</span><span>&bull;</span><span data-i18n="m.3">Nutrition</span><span>&bull;</span><span data-i18n="m.4">Hamburg</span><span>&bull;</span><span data-i18n="m.5">Online Worldwide</span><span>&bull;</span><span data-i18n="m.6">No Excuses</span><span>&bull;</span>
       </div>
       <div style="display:flex;gap:2.5rem;padding-right:2.5rem;font-family:Anton,Impact,sans-serif;font-size:0.95rem;letter-spacing:0.14em;text-transform:uppercase;color:#141414;white-space:nowrap" aria-hidden="true">
-        <span>Strength</span><span>&bull;</span><span>Accountability</span><span>&bull;</span><span>Nutrition</span><span>&bull;</span><span>Hamburg</span><span>&bull;</span><span>Online Worldwide</span><span>&bull;</span><span>No Excuses</span><span>&bull;</span>
+        <span data-i18n="m.1">Strength</span><span>&bull;</span><span data-i18n="m.2">Accountability</span><span>&bull;</span><span data-i18n="m.3">Nutrition</span><span>&bull;</span><span data-i18n="m.4">Hamburg</span><span>&bull;</span><span data-i18n="m.5">Online Worldwide</span><span>&bull;</span><span data-i18n="m.6">No Excuses</span><span>&bull;</span>
       </div>
     </div>
   </div>
 
-  <section id="about" style="padding:clamp(4rem,9vw,8rem) clamp(1.25rem,4vw,3.5rem);background:#141414">
-    <div style="max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(2.5rem,6vw,5rem);align-items:center">
+  <section id="about" style="position:relative;overflow:hidden;padding:clamp(4rem,9vw,8rem) clamp(1.25rem,4vw,3.5rem);background:#141414">
+    <div style="position:absolute;inset:0;background-image:url('gym photo.jpg');background-size:cover;background-position:center;background-attachment:fixed;filter:saturate(1.15) sepia(0.06) brightness(0.6)"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,0.84),rgba(20,20,20,0.76))"></div>
+    <div style="position:relative;z-index:2;max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(2.5rem,6vw,5rem);align-items:center">
       <div data-reveal="">
-        <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#B08D57;margin-bottom:1.5rem">About the Coach</div>
-        <h2 style="font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(2.2rem,4.5vw,3.6rem);line-height:1;text-transform:uppercase;margin:0;text-wrap:balance">Five years.<br />One method.<br />Real results.</h2>
-        <p style="margin:1.75rem 0 0;max-width:34rem;font-size:1rem;line-height:1.7;color:#b4b4b4;text-wrap:pretty">I'm Isaac Vergara Mejia &mdash; a Fitness Coach and Wellness Expert with a background in Economics and an MBA. I apply that same rigor to training: every program is built on science-backed methodology, not trends, paired with the accountability most programs skip entirely.</p>
-        <p style="margin:2rem 0 0;font-family:Anton,Impact,sans-serif;font-size:1.4rem;line-height:1.25;text-transform:uppercase;color:#fff;max-width:24rem">Discipline, built the same way strength is.</p>
-        <p style="margin:1rem 0 0;font-size:0.92rem;line-height:1.7;color:#8f8f8f;max-width:26rem">One rep, one session, one week at a time. Based in Hamburg, Germany &mdash; training clients in person and online, worldwide.</p>
+        <div data-i18n="about.eyebrow" style="font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#B08D57;margin-bottom:1.5rem">About the Coach</div>
+        <h2 data-i18n="about.title" data-i18n-html="" style="font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(2.2rem,4.5vw,3.6rem);line-height:1;text-transform:uppercase;margin:0;text-wrap:balance">Five years.<br />One method.<br />Real results.</h2>
+        <p data-i18n="about.p1" style="margin:1.75rem 0 0;max-width:34rem;font-size:1rem;line-height:1.7;color:#b4b4b4;text-wrap:pretty">I'm Isaac Vergara Mejia &mdash; a Fitness Coach and Wellness Expert with a background in Economics and an MBA. I apply that same rigor to training: every program is built on science-backed methodology, not trends, paired with the accountability most programs skip entirely.</p>
+        <p data-i18n="about.p2" style="margin:2rem 0 0;font-family:Anton,Impact,sans-serif;font-size:1.4rem;line-height:1.25;text-transform:uppercase;color:#fff;max-width:24rem">Discipline, built the same way strength is.</p>
+        <p data-i18n="about.p3" style="margin:1rem 0 0;font-size:0.92rem;line-height:1.7;color:#8f8f8f;max-width:26rem">One rep, one session, one week at a time. Based in Hamburg, Germany &mdash; training clients in person and online, worldwide.</p>
       </div>
-      <div data-reveal="" style="position:relative;width:100%;max-width:480px;aspect-ratio:4/5;border-radius:14px;overflow:hidden;margin:0 auto;background:#1e1e1e url('Isaac GYM.jpeg') center/cover no-repeat">
-        <video muted="" loop="" autoplay="" playsinline="" poster="Isaac GYM.jpeg" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:transparent;filter:saturate(0.55) contrast(1.05) brightness(0.9)">
-          <source src="Isaac biceps.mp4" type="video/mp4" />
+      <div data-reveal="" style="position:relative;width:100%;max-width:480px;aspect-ratio:4/5;border-radius:14px;overflow:hidden;margin:0 auto;background:#1e1e1e url('brutalismus gym 2.jpg') center/cover no-repeat">
+        <video muted="" loop="" autoplay="" playsinline="" poster="brutalismus gym 2.jpg" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:transparent;filter:saturate(1.05) contrast(1.03) brightness(0.97)">
+          <source src="Video Lads.mp4" type="video/mp4" />
         </video>
-        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,0.05),rgba(20,20,20,0.45))"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,0.05),rgba(20,20,20,0.42))"></div>
       </div>
     </div>
   </section>
 
-  <section id="services" style="padding:clamp(4rem,9vw,8rem) clamp(1.25rem,4vw,3.5rem);background:#1a1a1a;border-top:1px solid rgba(255,255,255,0.07)">
-    <div style="max-width:1400px;margin:0 auto">
-      <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#B08D57;margin-bottom:2.5rem">What I Offer</div>
+  <section id="services" style="position:relative;overflow:hidden;padding:clamp(4rem,9vw,8rem) clamp(1.25rem,4vw,3.5rem);background:#1a1a1a;border-top:1px solid rgba(255,255,255,0.07)">
+    <div style="position:absolute;inset:0;background-image:url('group gym photo.jpg');background-size:cover;background-position:center 30%;background-attachment:fixed;filter:saturate(1.15) sepia(0.06) brightness(0.6)"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,0.84),rgba(20,20,20,0.78))"></div>
+    <div style="position:relative;z-index:2;max-width:1400px;margin:0 auto">
+      <div data-i18n="services.eyebrow" style="font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#B08D57;margin-bottom:2.5rem">What I Offer</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem">
         <div data-reveal="" style="padding:clamp(1.75rem,3vw,2.75rem);border:1px solid rgba(255,255,255,0.12);border-radius:16px;background:#141414;transition:border-color .25s ease,transform .25s ease" class="hv8">
-          <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#7d7d7d">In-Person &middot; Hamburg</div>
-          <h3 style="font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(1.6rem,3vw,2.2rem);text-transform:uppercase;margin:0.75rem 0 0">Personal Training</h3>
-          <p style="margin:1.25rem 0 0;font-size:0.97rem;line-height:1.7;color:#a8a8a8;max-width:32rem">One-on-one sessions built around your body, your schedule, and your goals &mdash; full attention, zero guesswork, real accountability in the room with you.</p>
+          <div data-i18n="svc1.tag" style="font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#7d7d7d">In-Person &middot; Hamburg</div>
+          <h3 data-i18n="svc1.title" style="font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(1.6rem,3vw,2.2rem);text-transform:uppercase;margin:0.75rem 0 0">Personal Training</h3>
+          <p data-i18n="svc1.p" style="margin:1.25rem 0 0;font-size:0.97rem;line-height:1.7;color:#a8a8a8;max-width:32rem">One-on-one sessions built around your body, your schedule, and your goals &mdash; full attention, zero guesswork, real accountability in the room with you.</p>
         </div>
         <div data-reveal="" style="padding:clamp(1.75rem,3vw,2.75rem);border:1px solid rgba(255,255,255,0.12);border-radius:16px;background:#141414;transition:border-color .25s ease,transform .25s ease" class="hv9">
-          <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#7d7d7d">Remote &middot; Worldwide</div>
-          <h3 style="font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(1.6rem,3vw,2.2rem);text-transform:uppercase;margin:0.75rem 0 0">Online Coaching</h3>
-          <p style="margin:1.25rem 0 0;font-size:0.97rem;line-height:1.7;color:#a8a8a8;max-width:32rem">Full remote coaching for driven men who want structure without stepping into a gym with me. Custom programs, weekly check-ins, direct support seven days a week.</p>
+          <div data-i18n="svc2.tag" style="font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#7d7d7d">Remote &middot; Worldwide</div>
+          <h3 data-i18n="svc2.title" style="font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(1.6rem,3vw,2.2rem);text-transform:uppercase;margin:0.75rem 0 0">Online Coaching</h3>
+          <p data-i18n="svc2.p" style="margin:1.25rem 0 0;font-size:0.97rem;line-height:1.7;color:#a8a8a8;max-width:32rem">Full remote coaching for driven men who want structure without stepping into a gym with me. Custom programs, weekly check-ins, direct support seven days a week.</p>
         </div>
       </div>
     </div>
   </section>
 
   <section id="results" style="position:relative;padding:clamp(4rem,9vw,8rem) clamp(1.25rem,4vw,3.5rem);overflow:hidden">
-    <div style="position:absolute;inset:0;background-image:url('brutalismus gym 1.jpg');background-size:cover;background-position:center;filter:saturate(0.3) brightness(0.4)"></div>
-    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,0.9),rgba(20,20,20,0.75))"></div>
+    <div style="position:absolute;inset:0;background-image:url('brutalismus gym 1.jpg');background-size:cover;background-position:center;background-attachment:fixed;filter:saturate(1.15) sepia(0.06) brightness(0.58)"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,0.84),rgba(20,20,20,0.7))"></div>
     <div style="position:relative;z-index:2;max-width:1400px;margin:0 auto">
-      <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#B08D57;margin-bottom:2.5rem">The Numbers</div>
+      <div data-i18n="results.eyebrow" style="font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#B08D57;margin-bottom:2.5rem">The Numbers</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(2rem,5vw,4rem);align-items:center">
-      <div data-reveal="" style="position:relative;width:100%;max-width:460px;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:#1e1e1e url('brutalismus gym 2.jpg') center/cover no-repeat;box-shadow:0 24px 60px rgba(0,0,0,0.45)">
-        <video muted="" loop="" autoplay="" playsinline="" poster="brutalismus gym 2.jpg" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:transparent;filter:saturate(0.55) contrast(1.05) brightness(0.9)">
-          <source src="Video Lads.mp4" type="video/mp4" />
+      <div data-reveal="" style="position:relative;width:100%;max-width:460px;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:#1e1e1e url('man looking the bar.jpg') center/cover no-repeat;box-shadow:0 24px 60px rgba(0,0,0,0.45)">
+        <video muted="" loop="" autoplay="" playsinline="" poster="man looking the bar.jpg" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:transparent;filter:saturate(1.05) contrast(1.03) brightness(0.97)">
+          <source src="Video Bulgarians.mp4" type="video/mp4" />
         </video>
-        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,0.05),rgba(20,20,20,0.45))"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,0.05),rgba(20,20,20,0.42))"></div>
       </div>
       <div style="display:grid;gap:2.5rem">
         <div data-reveal="">
           <div style="font-family:Anton,Impact,sans-serif;font-size:clamp(3.5rem,8vw,6rem);line-height:0.85;color:#fff">5+</div>
-          <div style="margin-top:1rem;font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#8f8f8f">Years coaching clients</div>
+          <div data-i18n="num1.label" style="margin-top:1rem;font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#8f8f8f">Years of fitness experience</div>
         </div>
         <div data-reveal="">
           <div style="font-family:Anton,Impact,sans-serif;font-size:clamp(3.5rem,8vw,6rem);line-height:0.85;color:#fff">100<span style="color:#B08D57">%</span></div>
-          <div style="margin-top:1rem;font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#8f8f8f">Personalized programs</div>
+          <div data-i18n="num2.label" style="margin-top:1rem;font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#8f8f8f">Personalized programs</div>
         </div>
         <div data-reveal="">
           <div style="font-family:Anton,Impact,sans-serif;font-size:clamp(3.5rem,8vw,6rem);line-height:0.85;color:#fff">7</div>
-          <div style="margin-top:1rem;font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#8f8f8f">Days a week support</div>
+          <div data-i18n="num3.label" style="margin-top:1rem;font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#8f8f8f">Days a week support</div>
         </div>
       </div>
       </div>
@@ -157,48 +166,48 @@ html{scroll-behavior:smooth}
   </section>
 
   
-  <section style="position:relative;padding:clamp(4rem,9vw,8rem) clamp(1.25rem,4vw,3.5rem);border-top:1px solid rgba(255,255,255,0.07);overflow:hidden">
-    <div style="position:absolute;inset:0;background-image:url('man looking the bar.jpg');background-size:cover;background-position:center;filter:saturate(0.3) brightness(0.4)"></div>
-    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,0.9),rgba(20,20,20,0.75))"></div>
+  <section style="position:relative;overflow:hidden;padding:clamp(4rem,9vw,8rem) clamp(1.25rem,4vw,3.5rem);background:#1a1a1a;border-top:1px solid rgba(255,255,255,0.07)">
+    <div style="position:absolute;inset:0;background-image:url('Man in black.jpg');background-size:cover;background-position:center 25%;background-attachment:fixed;filter:saturate(1.15) sepia(0.06) brightness(0.58)"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,0.84),rgba(20,20,20,0.78))"></div>
     <div style="position:relative;z-index:2;max-width:1400px;margin:0 auto">
       <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:2.5rem">
         <div>
-          <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#B08D57;margin-bottom:1rem">Clients</div>
-          <h2 style="font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(2rem,4vw,3.2rem);line-height:1;text-transform:uppercase;margin:0">What they say</h2>
+          <div data-i18n="clients.eyebrow" style="font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#B08D57;margin-bottom:1rem">Clients</div>
+          <h2 data-i18n="clients.title" style="font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(2rem,4vw,3.2rem);line-height:1;text-transform:uppercase;margin:0">What they say</h2>
         </div>
-        <p style="font-family:ui-monospace,Menlo,monospace;font-size:0.72rem;color:#6b6b6b;max-width:20rem;margin:0">Reemplaza con testimonios reales (nombre + resultado).</p>
+        <p data-i18n="clients.note" style="font-family:ui-monospace,Menlo,monospace;font-size:0.72rem;color:#6b6b6b;max-width:20rem;margin:0">Replace with real testimonials (name + result).</p>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem">
         <div data-reveal="" style="padding:2rem;border:1px solid rgba(255,255,255,0.12);border-radius:16px;background:#141414">
           <div style="font-family:Anton,Impact,sans-serif;font-size:2rem;color:#B08D57;line-height:1">&ldquo;</div>
-          <p style="margin:0.75rem 0 0;font-size:1rem;line-height:1.7;color:#d0d0d0;text-wrap:pretty">Testimonio del cliente &mdash; qu&eacute; buscaba, qu&eacute; consigui&oacute; y en cu&aacute;nto tiempo. Dos o tres frases bastan.</p>
+          <p data-i18n="t.quote" style="margin:0.75rem 0 0;font-size:1rem;line-height:1.7;color:#d0d0d0;text-wrap:pretty">Client testimonial &mdash; what they wanted, what they achieved, and how long it took. Two or three sentences is enough.</p>
           <div style="margin-top:1.5rem;display:flex;align-items:center;gap:0.85rem">
             <div style="width:38px;height:38px;border-radius:999px;background:repeating-linear-gradient(45deg,#2a2a2a,#2a2a2a 4px,#333 4px,#333 8px)"></div>
             <div>
-              <div style="font-size:0.85rem;font-weight:600;color:#fff">Nombre del cliente</div>
-              <div style="font-size:0.75rem;color:#7d7d7d">Personal Training &middot; Hamburg</div>
+              <div data-i18n="t.name" style="font-size:0.85rem;font-weight:600;color:#fff">Client name</div>
+              <div data-i18n="t1.role" style="font-size:0.75rem;color:#7d7d7d">Personal Training &middot; Hamburg</div>
             </div>
           </div>
         </div>
         <div data-reveal="" style="padding:2rem;border:1px solid rgba(255,255,255,0.12);border-radius:16px;background:#141414">
           <div style="font-family:Anton,Impact,sans-serif;font-size:2rem;color:#B08D57;line-height:1">&ldquo;</div>
-          <p style="margin:0.75rem 0 0;font-size:1rem;line-height:1.7;color:#d0d0d0;text-wrap:pretty">Testimonio del cliente &mdash; qu&eacute; buscaba, qu&eacute; consigui&oacute; y en cu&aacute;nto tiempo. Dos o tres frases bastan.</p>
+          <p data-i18n="t.quote" style="margin:0.75rem 0 0;font-size:1rem;line-height:1.7;color:#d0d0d0;text-wrap:pretty">Client testimonial &mdash; what they wanted, what they achieved, and how long it took. Two or three sentences is enough.</p>
           <div style="margin-top:1.5rem;display:flex;align-items:center;gap:0.85rem">
             <div style="width:38px;height:38px;border-radius:999px;background:repeating-linear-gradient(45deg,#2a2a2a,#2a2a2a 4px,#333 4px,#333 8px)"></div>
             <div>
-              <div style="font-size:0.85rem;font-weight:600;color:#fff">Nombre del cliente</div>
-              <div style="font-size:0.75rem;color:#7d7d7d">Online Coaching</div>
+              <div data-i18n="t.name" style="font-size:0.85rem;font-weight:600;color:#fff">Client name</div>
+              <div data-i18n="t2.role" style="font-size:0.75rem;color:#7d7d7d">Online Coaching</div>
             </div>
           </div>
         </div>
         <div data-reveal="" style="padding:2rem;border:1px solid rgba(255,255,255,0.12);border-radius:16px;background:#141414">
           <div style="font-family:Anton,Impact,sans-serif;font-size:2rem;color:#B08D57;line-height:1">&ldquo;</div>
-          <p style="margin:0.75rem 0 0;font-size:1rem;line-height:1.7;color:#d0d0d0;text-wrap:pretty">Testimonio del cliente &mdash; qu&eacute; buscaba, qu&eacute; consigui&oacute; y en cu&aacute;nto tiempo. Dos o tres frases bastan.</p>
+          <p data-i18n="t.quote" style="margin:0.75rem 0 0;font-size:1rem;line-height:1.7;color:#d0d0d0;text-wrap:pretty">Client testimonial &mdash; what they wanted, what they achieved, and how long it took. Two or three sentences is enough.</p>
           <div style="margin-top:1.5rem;display:flex;align-items:center;gap:0.85rem">
             <div style="width:38px;height:38px;border-radius:999px;background:repeating-linear-gradient(45deg,#2a2a2a,#2a2a2a 4px,#333 4px,#333 8px)"></div>
             <div>
-              <div style="font-size:0.85rem;font-weight:600;color:#fff">Nombre del cliente</div>
-              <div style="font-size:0.75rem;color:#7d7d7d">Online Coaching</div>
+              <div data-i18n="t.name" style="font-size:0.85rem;font-weight:600;color:#fff">Client name</div>
+              <div data-i18n="t2.role" style="font-size:0.75rem;color:#7d7d7d">Online Coaching</div>
             </div>
           </div>
         </div>
@@ -207,95 +216,206 @@ html{scroll-behavior:smooth}
   </section>
   
 
-  <section id="pricing" style="padding:clamp(4rem,9vw,8rem) clamp(1.25rem,4vw,3.5rem);background:#141414">
-    <div style="max-width:1400px;margin:0 auto">
-      <div style="font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#B08D57;margin-bottom:1.25rem">Pricing</div>
-      <h2 style="font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(2.2rem,5vw,4rem);line-height:0.95;text-transform:uppercase;margin:0;max-width:20ch;text-wrap:balance">Ready to start your transformation?</h2>
-      <p style="margin:1.5rem 0 3rem;font-size:1rem;line-height:1.7;color:#a8a8a8;max-width:32rem">I'm available for new clients &mdash; in person in Hamburg or online worldwide.</p>
+  <section id="pricing" style="position:relative;overflow:hidden;padding:clamp(4rem,9vw,8rem) clamp(1.25rem,4vw,3.5rem);background:#141414">
+    <div style="position:absolute;inset:0;background-image:url('woman lifting one hand.jpeg');background-size:cover;background-position:center 30%;background-attachment:fixed;filter:saturate(1.15) sepia(0.06) brightness(0.6)"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,0.86),rgba(20,20,20,0.82))"></div>
+    <div style="position:relative;z-index:2;max-width:1400px;margin:0 auto">
+      <div data-i18n="pricing.eyebrow" style="font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#B08D57;margin-bottom:1.25rem">Pricing</div>
+      <h2 data-i18n="pricing.title" style="font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(2.2rem,5vw,4rem);line-height:0.95;text-transform:uppercase;margin:0;max-width:20ch;text-wrap:balance">Ready to start your transformation?</h2>
+      <p data-i18n="pricing.lead" style="margin:1.5rem 0 3rem;font-size:1rem;line-height:1.7;color:#a8a8a8;max-width:32rem">I'm available for new clients &mdash; in person in Hamburg or online worldwide.</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;align-items:stretch">
         <div data-reveal="" style="display:flex;flex-direction:column;padding:2.25rem;border:1px solid rgba(255,255,255,0.12);border-radius:18px;background:#1a1a1a">
-          <div style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#7d7d7d">Single Session</div>
-          <div style="margin-top:1.25rem;font-family:Anton,Impact,sans-serif;font-size:3.2rem;line-height:1">&euro;50</div>
-          <div style="font-size:0.8rem;color:#7d7d7d;margin-top:0.4rem">per session</div>
+          <div data-i18n="p1.tag" style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#7d7d7d">Single Session</div>
+          <div style="margin-top:1.25rem;font-family:Anton,Impact,sans-serif;font-size:3.2rem;line-height:1">&euro;200</div>
+          <div data-i18n="p1.per" style="font-size:0.8rem;color:#7d7d7d;margin-top:0.4rem">per session</div>
           <div style="display:flex;flex-direction:column;gap:0.7rem;margin:1.75rem 0 2rem;font-size:0.92rem;color:#a8a8a8">
-            <div>60 min one-on-one in Hamburg</div>
-            <div>Technique assessment</div>
-            <div>Session plan to take home</div>
+            <div data-i18n="p1.f1">60 min one-on-one in Hamburg</div>
+            <div data-i18n="p1.f2">Technique assessment</div>
+            <div data-i18n="p1.f3">Session plan to take home</div>
           </div>
-          <a href="https://buy.stripe.com/test_bJedRb0id29o0Cz3aoao800" target="_blank" rel="noopener noreferrer" style="margin-top:auto;text-align:center;background:transparent;color:#fff;text-decoration:none;font-weight:600;font-size:0.85rem;padding:0.95em 1.5em;border-radius:999px;border:1px solid rgba(255,255,255,0.3);transition:background .2s ease,border-color .2s ease" class="hv10">Book Session</a>
+          <a href="https://buy.stripe.com/test_9B614paWRcO2fxtbGUao801" target="_blank" rel="noopener noreferrer" data-i18n="p1.cta" style="margin-top:auto;text-align:center;background:transparent;color:#fff;text-decoration:none;font-weight:600;font-size:0.85rem;padding:0.95em 1.5em;border-radius:999px;border:1px solid rgba(255,255,255,0.3);transition:background .2s ease,border-color .2s ease" class="hv10">Book Session</a>
         </div>
         <div data-reveal="" style="display:flex;flex-direction:column;padding:2.25rem;border:1px solid #B08D57;border-radius:18px;background:#1a1a1a;position:relative;box-shadow:0 20px 60px rgba(176,141,87,0.08)">
-          <div style="position:absolute;top:-11px;left:2.25rem;background:#B08D57;color:#141414;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.4em 0.9em;border-radius:999px">Most chosen</div>
-          <div style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#B08D57">10-Session Pack</div>
-          <div style="margin-top:1.25rem;font-family:Anton,Impact,sans-serif;font-size:3.2rem;line-height:1">&euro;450</div>
-          <div style="font-size:0.8rem;color:#7d7d7d;margin-top:0.4rem">&euro;45 per session &middot; save &euro;50</div>
+          <div data-i18n="p2.badge" style="position:absolute;top:-11px;left:2.25rem;background:#B08D57;color:#141414;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.4em 0.9em;border-radius:999px">Most chosen</div>
+          <div data-i18n="p2.tag" style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#B08D57">10-Session Pack</div>
+          <div style="margin-top:1.25rem;font-family:Anton,Impact,sans-serif;font-size:3.2rem;line-height:1">&euro;1,800</div>
+          <div data-i18n="p2.per" style="font-size:0.8rem;color:#7d7d7d;margin-top:0.4rem">&euro;180 per session &middot; save &euro;200</div>
           <div style="display:flex;flex-direction:column;gap:0.7rem;margin:1.75rem 0 2rem;font-size:0.92rem;color:#c4c4c4">
-            <div>10 one-on-one sessions in Hamburg</div>
-            <div>Progressive 10-week program</div>
-            <div>Nutrition guidance</div>
-            <div>WhatsApp support between sessions</div>
+            <div data-i18n="p2.f1">10 one-on-one sessions in Hamburg</div>
+            <div data-i18n="p2.f2">Progressive 10-week program</div>
+            <div data-i18n="p2.f3">Nutrition guidance</div>
+            <div data-i18n="p2.f4">WhatsApp support between sessions</div>
           </div>
-          <a href="https://buy.stripe.com/test_bJedRb0id29o0Cz3aoao800" target="_blank" rel="noopener noreferrer" style="margin-top:auto;text-align:center;background:#B08D57;color:#141414;text-decoration:none;font-weight:700;font-size:0.85rem;padding:0.95em 1.5em;border-radius:999px;transition:transform .18s ease,box-shadow .18s ease" class="hv11">Start the pack</a>
+          <a href="https://buy.stripe.com/test_4gM4gB6GB9BQad926kao802" target="_blank" rel="noopener noreferrer" data-i18n="p2.cta" style="margin-top:auto;text-align:center;background:#B08D57;color:#141414;text-decoration:none;font-weight:700;font-size:0.85rem;padding:0.95em 1.5em;border-radius:999px;transition:transform .18s ease,box-shadow .18s ease" class="hv11">Start the pack</a>
         </div>
         <div data-reveal="" style="display:flex;flex-direction:column;padding:2.25rem;border:1px solid rgba(255,255,255,0.12);border-radius:18px;background:#1a1a1a">
-          <div style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#7d7d7d">Online Coaching</div>
-          <div style="margin-top:1.25rem;font-family:Anton,Impact,sans-serif;font-size:3.2rem;line-height:1">&euro;120</div>
-          <div style="font-size:0.8rem;color:#7d7d7d;margin-top:0.4rem">per month</div>
+          <div data-i18n="p3.tag" style="font-size:0.75rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#7d7d7d">Online Coaching</div>
+          <div style="margin-top:1.25rem;font-family:Anton,Impact,sans-serif;font-size:3.2rem;line-height:1">&euro;400</div>
+          <div data-i18n="p3.per" style="font-size:0.8rem;color:#7d7d7d;margin-top:0.4rem">per month</div>
           <div style="display:flex;flex-direction:column;gap:0.7rem;margin:1.75rem 0 2rem;font-size:0.92rem;color:#a8a8a8">
-            <div>Custom program, updated monthly</div>
-            <div>Weekly check-ins</div>
-            <div>Direct support 7 days a week</div>
-            <div>Anywhere in the world</div>
+            <div data-i18n="p3.f1">Custom program, updated monthly</div>
+            <div data-i18n="p3.f2">Weekly check-ins</div>
+            <div data-i18n="p3.f3">Direct support 7 days a week</div>
+            <div data-i18n="p3.f4">Anywhere in the world</div>
           </div>
-          <a href="mailto:isaac971219@gmail.com" style="margin-top:auto;text-align:center;background:transparent;color:#fff;text-decoration:none;font-weight:600;font-size:0.85rem;padding:0.95em 1.5em;border-radius:999px;border:1px solid rgba(255,255,255,0.3);transition:background .2s ease,border-color .2s ease" class="hv12">Apply now</a>
+          <a href="https://buy.stripe.com/test_dRm7sN5CxeWaetp8uIao803" target="_blank" rel="noopener noreferrer" data-i18n="p3.cta" style="margin-top:auto;text-align:center;background:transparent;color:#fff;text-decoration:none;font-weight:600;font-size:0.85rem;padding:0.95em 1.5em;border-radius:999px;border:1px solid rgba(255,255,255,0.3);transition:background .2s ease,border-color .2s ease" class="hv12">Apply now</a>
         </div>
       </div>
-      <p style="margin:1.75rem 0 0;font-family:ui-monospace,Menlo,monospace;font-size:0.72rem;color:#6b6b6b">Precios de paquete y online: ajusta las cifras a las tuyas. Stripe sigue en modo test.</p>
+      <p data-i18n="pricing.note" style="margin:1.75rem 0 0;font-family:ui-monospace,Menlo,monospace;font-size:0.72rem;color:#6b6b6b">Pack and online prices are derived from the &euro;200 single session &mdash; adjust if needed. Stripe is still in test mode.</p>
     </div>
   </section>
 
-  <section style="position:relative;padding:clamp(4rem,9vw,7rem) clamp(1.25rem,4vw,3.5rem);overflow:hidden;border-top:1px solid rgba(255,255,255,0.07)">
-    <div style="position:absolute;inset:0;background-image:url('Man in black.jpg');background-size:cover;background-position:center 30%;filter:saturate(0.3) brightness(0.45)"></div>
-    <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,20,20,0.92),rgba(20,20,20,0.6))"></div>
+  <section style="position:relative;padding:clamp(2rem,4vw,4rem) clamp(1.25rem,4vw,3.5rem) clamp(4rem,9vw,7rem);overflow:hidden">
+    <div style="position:absolute;inset:0;background-image:url('woman lifting one hand.jpeg');background-size:cover;background-position:center 30%;background-attachment:fixed;filter:saturate(1.15) sepia(0.06) brightness(0.6)"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,0.82),rgba(20,20,20,0.88))"></div>
     <div data-reveal="" style="position:relative;z-index:2;max-width:1400px;margin:0 auto">
-      <h2 style="font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(2.4rem,6vw,5rem);line-height:0.95;text-transform:uppercase;margin:0;max-width:16ch">Your first session starts the change.</h2>
+      <h2 data-i18n="cta.title" style="font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(2.4rem,6vw,5rem);line-height:0.95;text-transform:uppercase;margin:0;max-width:16ch">Your first session starts the change.</h2>
       <div style="display:flex;gap:0.9rem;margin-top:2.5rem;flex-wrap:wrap">
-        <a href="https://buy.stripe.com/test_bJedRb0id29o0Cz3aoao800" target="_blank" rel="noopener noreferrer" style="background:#B08D57;color:#141414;text-decoration:none;font-weight:700;font-size:0.85rem;padding:1.05em 2.2em;border-radius:999px;transition:transform .18s ease,box-shadow .18s ease" class="hv13">Book Session &middot; &euro;50</a>
-        <a href="mailto:isaac971219@gmail.com" style="background:transparent;color:#fff;text-decoration:none;font-weight:600;font-size:0.85rem;padding:1.05em 2.2em;border-radius:999px;border:1px solid rgba(255,255,255,0.3);transition:background .2s ease,border-color .2s ease" class="hv14">Get in Touch</a>
+        <a href="https://buy.stripe.com/test_9B614paWRcO2fxtbGUao801" target="_blank" rel="noopener noreferrer" data-i18n="hero.cta1" style="background:#B08D57;color:#141414;text-decoration:none;font-weight:700;font-size:0.85rem;padding:1.05em 2.2em;border-radius:999px;transition:transform .18s ease,box-shadow .18s ease" class="hv13">Book Session &middot; &euro;200</a>
+        <a href="mailto:isaac971219@gmail.com" data-i18n="cta.b2" style="background:transparent;color:#fff;text-decoration:none;font-weight:600;font-size:0.85rem;padding:1.05em 2.2em;border-radius:999px;border:1px solid rgba(255,255,255,0.3);transition:background .2s ease,border-color .2s ease" class="hv14">Get in Touch</a>
       </div>
     </div>
   </section>
 
   <footer style="padding:2.5rem clamp(1.25rem,4vw,3.5rem) 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,0.1);background:#141414">
     <a href="mailto:isaac971219@gmail.com" style="color:#a8a8a8;text-decoration:none;font-size:0.88rem" class="hv15">isaac971219@gmail.com</a>
-    <p style="color:#6b6b6b;font-size:0.78rem;margin:0">&copy; 2026 Isaac Vergara Mejia &middot; Made in Hamburg</p>
+    <p data-i18n="footer.copy" style="color:#6b6b6b;font-size:0.78rem;margin:0">&copy; 2026 Isaac Vergara Mejia &middot; Made in Hamburg</p>
   </footer>
 </div>
 
 <script>
+const I18N = {
+  es: {
+    'nav.about': 'Sobre mí', 'nav.services': 'Servicios', 'nav.results': 'Resultados', 'nav.pricing': 'Precios', 'nav.book': 'Reservar · €200',
+    'hero.eyebrow': 'Fitness Coach · Hamburgo',
+    'hero.title': 'Entrena mejor.<br />Ponte más <span style="color:#B08D57">fuerte</span>.',
+    'hero.lead': 'Entrenamiento personal y coaching online con más de cinco años de experiencia en fitness. Sin modas: un plan estructurado, seguimiento constante y un coach que aparece en cada sesión.',
+    'hero.cta1': 'Reservar sesión · €200', 'hero.cta2': 'Ver servicios',
+    'hero.strip': '5+ años de experiencia en fitness · Entrenamiento personal en Hamburgo · Coaching online en todo el mundo',
+    'm.1': 'Fuerza', 'm.2': 'Constancia', 'm.3': 'Nutrición', 'm.4': 'Hamburgo', 'm.5': 'Online mundial', 'm.6': 'Sin excusas',
+    'about.eyebrow': 'Sobre el coach',
+    'about.title': 'Cinco años.<br />Un método.<br />Resultados reales.',
+    'about.p1': 'Soy Isaac Vergara Mejia, Fitness Coach y experto en bienestar con formación en Economía y un MBA. Aplico el mismo rigor al entrenamiento: cada programa se basa en metodología científica, no en tendencias, junto al seguimiento que la mayoría de los programas se salta.',
+    'about.p2': 'La disciplina se construye igual que la fuerza.',
+    'about.p3': 'Una repetición, una sesión, una semana a la vez. Con base en Hamburgo, Alemania: entreno clientes en persona y online, en todo el mundo.',
+    'services.eyebrow': 'Lo que ofrezco',
+    'svc1.tag': 'Presencial · Hamburgo', 'svc1.title': 'Entrenamiento personal',
+    'svc1.p': 'Sesiones uno a uno diseñadas alrededor de tu cuerpo, tu horario y tus objetivos: atención completa, cero improvisación y seguimiento real contigo en la sala.',
+    'svc2.tag': 'Remoto · Todo el mundo', 'svc2.title': 'Coaching online',
+    'svc2.p': 'Coaching remoto completo para quienes quieren estructura sin pisar el gimnasio conmigo. Programas personalizados, revisiones semanales y apoyo directo los siete días de la semana.',
+    'results.eyebrow': 'Las cifras',
+    'num1.label': 'Años de experiencia en fitness', 'num2.label': 'Programas personalizados', 'num3.label': 'Días de apoyo a la semana',
+    'clients.eyebrow': 'Clientes', 'clients.title': 'Lo que dicen',
+    'clients.note': 'Reemplaza con testimonios reales (nombre + resultado).',
+    't.quote': 'Testimonio del cliente: qué buscaba, qué consiguió y en cuánto tiempo. Dos o tres frases bastan.',
+    't.name': 'Nombre del cliente', 't1.role': 'Entrenamiento personal · Hamburgo', 't2.role': 'Coaching online',
+    'pricing.eyebrow': 'Precios', 'pricing.title': '¿Listo para empezar tu transformación?',
+    'pricing.lead': 'Estoy disponible para nuevos clientes, en persona en Hamburgo o online en todo el mundo.',
+    'p1.tag': 'Sesión individual', 'p1.per': 'por sesión',
+    'p1.f1': '60 min uno a uno en Hamburgo', 'p1.f2': 'Evaluación de técnica', 'p1.f3': 'Plan de sesión para llevar', 'p1.cta': 'Reservar sesión',
+    'p2.badge': 'Más elegido', 'p2.tag': 'Pack de 10 sesiones', 'p2.per': '€180 por sesión · ahorras €200',
+    'p2.f1': '10 sesiones uno a uno en Hamburgo', 'p2.f2': 'Programa progresivo de 10 semanas', 'p2.f3': 'Guía de nutrición', 'p2.f4': 'Apoyo por WhatsApp entre sesiones', 'p2.cta': 'Empezar el pack',
+    'p3.tag': 'Coaching online', 'p3.per': 'al mes',
+    'p3.f1': 'Programa personalizado, actualizado cada mes', 'p3.f2': 'Revisiones semanales', 'p3.f3': 'Apoyo directo 7 días a la semana', 'p3.f4': 'Desde cualquier parte del mundo', 'p3.cta': 'Solicitar plaza',
+    'pricing.note': 'Los precios del pack y del online se derivan de la sesión de €200: ajústalos si hace falta. Stripe sigue en modo test.',
+    'cta.title': 'Tu primera sesión empieza el cambio.', 'cta.b2': 'Contacto',
+    'footer.copy': '© 2026 Isaac Vergara Mejia · Hecho en Hamburgo'
+  },
+  de: {
+    'nav.about': 'Über mich', 'nav.services': 'Leistungen', 'nav.results': 'Ergebnisse', 'nav.pricing': 'Preise', 'nav.book': 'Buchen · €200',
+    'hero.eyebrow': 'Fitness Coach · Hamburg',
+    'hero.title': 'Trainiere klüger.<br />Werde <span style="color:#B08D57">stärker</span>.',
+    'hero.lead': 'Personal Training und Online-Coaching auf Basis von über fünf Jahren Fitness-Erfahrung. Keine Trends, sondern ein strukturierter Plan, konsequente Begleitung und ein Coach, der zu jeder Einheit erscheint.',
+    'hero.cta1': 'Session buchen · €200', 'hero.cta2': 'Leistungen ansehen',
+    'hero.strip': '5+ Jahre Fitness-Erfahrung · Personal Training in Hamburg · Online-Coaching weltweit',
+    'm.1': 'Kraft', 'm.2': 'Verbindlichkeit', 'm.3': 'Ernährung', 'm.4': 'Hamburg', 'm.5': 'Online weltweit', 'm.6': 'Keine Ausreden',
+    'about.eyebrow': 'Über den Coach',
+    'about.title': 'Fünf Jahre.<br />Eine Methode.<br />Echte Ergebnisse.',
+    'about.p1': 'Ich bin Isaac Vergara Mejia — Fitness Coach und Wellness-Experte mit einem Hintergrund in Wirtschaft und einem MBA. Dieselbe Sorgfalt bringe ich ins Training: jedes Programm basiert auf wissenschaftlicher Methodik statt auf Trends, verbunden mit der Begleitung, die die meisten Programme auslassen.',
+    'about.p2': 'Disziplin baut man auf wie Kraft.',
+    'about.p3': 'Eine Wiederholung, eine Einheit, eine Woche nach der anderen. Ansässig in Hamburg — Training vor Ort und online, weltweit.',
+    'services.eyebrow': 'Mein Angebot',
+    'svc1.tag': 'Vor Ort · Hamburg', 'svc1.title': 'Personal Training',
+    'svc1.p': 'Einzeltraining, aufgebaut auf deinen Körper, deinen Zeitplan und deine Ziele — volle Aufmerksamkeit, kein Rätselraten, echte Verbindlichkeit direkt im Raum.',
+    'svc2.tag': 'Remote · Weltweit', 'svc2.title': 'Online-Coaching',
+    'svc2.p': 'Vollständiges Remote-Coaching für alle, die Struktur wollen, ohne mit mir im Studio zu stehen. Individuelle Programme, wöchentliche Check-ins, direkte Unterstützung an sieben Tagen der Woche.',
+    'results.eyebrow': 'Die Zahlen',
+    'num1.label': 'Jahre Fitness-Erfahrung', 'num2.label': 'Individuelle Programme', 'num3.label': 'Tage Support pro Woche',
+    'clients.eyebrow': 'Kunden', 'clients.title': 'Was sie sagen',
+    'clients.note': 'Mit echten Testimonials ersetzen (Name + Ergebnis).',
+    't.quote': 'Kunden-Testimonial — was er wollte, was er erreicht hat und in welcher Zeit. Zwei oder drei Sätze genügen.',
+    't.name': 'Name des Kunden', 't1.role': 'Personal Training · Hamburg', 't2.role': 'Online-Coaching',
+    'pricing.eyebrow': 'Preise', 'pricing.title': 'Bereit für deine Veränderung?',
+    'pricing.lead': 'Ich nehme neue Kunden auf — vor Ort in Hamburg oder online weltweit.',
+    'p1.tag': 'Einzelsession', 'p1.per': 'pro Session',
+    'p1.f1': '60 Min Einzeltraining in Hamburg', 'p1.f2': 'Technik-Analyse', 'p1.f3': 'Trainingsplan zum Mitnehmen', 'p1.cta': 'Session buchen',
+    'p2.badge': 'Am häufigsten gewählt', 'p2.tag': '10er-Paket', 'p2.per': '€180 pro Session · €200 gespart',
+    'p2.f1': '10 Einzeleinheiten in Hamburg', 'p2.f2': 'Progressives 10-Wochen-Programm', 'p2.f3': 'Ernährungsberatung', 'p2.f4': 'WhatsApp-Support zwischen den Einheiten', 'p2.cta': 'Paket starten',
+    'p3.tag': 'Online-Coaching', 'p3.per': 'pro Monat',
+    'p3.f1': 'Individuelles Programm, monatlich aktualisiert', 'p3.f2': 'Wöchentliche Check-ins', 'p3.f3': 'Direkter Support an 7 Tagen', 'p3.f4': 'Von überall auf der Welt', 'p3.cta': 'Jetzt bewerben',
+    'pricing.note': 'Paket- und Online-Preise leiten sich von der €200-Einzelsession ab — bei Bedarf anpassen. Stripe läuft weiter im Testmodus.',
+    'cta.title': 'Deine erste Session startet die Veränderung.', 'cta.b2': 'Kontakt',
+    'footer.copy': '© 2026 Isaac Vergara Mejia · Made in Hamburg'
+  }
+};
+
 (function(){
   document.querySelectorAll('video').forEach(function(v){
     function kill(){ v.style.display='none'; }
+    function check(){ if(v.readyState===0&&v.networkState===3) kill(); }
     var s=v.querySelector('source'); if(s) s.addEventListener('error',kill);
     v.addEventListener('error',kill);
     v.addEventListener('loadeddata',function(){ v.style.display=''; });
-    setTimeout(function(){ if(v.readyState===0&&v.networkState===3) kill(); },1200);
-    setTimeout(function(){ if(v.readyState===0&&v.networkState===3) kill(); },3500);
+    setTimeout(check,1200); setTimeout(check,3500);
   });
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var nodes=[].slice.call(document.querySelectorAll('[data-reveal]'));
-  if(!nodes.length) return;
+
+  var nodes=[].slice.call(document.querySelectorAll('[data-i18n]'));
   nodes.forEach(function(nd){
+    if(nd.dataset.i18nEn===undefined){
+      nd.dataset.i18nEn = nd.hasAttribute('data-i18n-html') ? nd.innerHTML : nd.textContent;
+    }
+  });
+  var btns=[].slice.call(document.querySelectorAll('[data-lang]'));
+  function apply(lang){
+    var d=I18N[lang];
+    nodes.forEach(function(nd){
+      var v = d ? d[nd.dataset.i18n] : undefined;
+      var txt = v!==undefined ? v : nd.dataset.i18nEn;
+      if(nd.hasAttribute('data-i18n-html')) nd.innerHTML=txt; else nd.textContent=txt;
+    });
+    document.documentElement.setAttribute('lang',lang);
+    btns.forEach(function(b){
+      var on = b.dataset.lang===lang;
+      b.style.background = on ? '#B08D57' : 'transparent';
+      b.style.color = on ? '#141414' : '#a8a8a8';
+    });
+    try{ localStorage.setItem('isaac-lang',lang); }catch(e){}
+  }
+  btns.forEach(function(b){ b.addEventListener('click',function(){ apply(b.dataset.lang); }); });
+  var start='en';
+  try{ start=localStorage.getItem('isaac-lang')||'en'; }catch(e){}
+  if(!I18N[start] && start!=='en') start='en';
+  apply(start);
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var rv=[].slice.call(document.querySelectorAll('[data-reveal]'));
+  if(!rv.length) return;
+  function show(nd,i){ nd.dataset.revealed='1'; nd.style.transitionDelay=((i||0)%3)*90+'ms'; nd.style.opacity='1'; nd.style.transform='none'; }
+  function inView(nd){ var r=nd.getBoundingClientRect(); return r.top < (window.innerHeight||0) && r.bottom > 0; }
+  rv.forEach(function(nd){
+    if(nd.dataset.revealed) return;
+    if(inView(nd)){ nd.dataset.revealed='1'; return; }
     nd.style.opacity='0';
     nd.style.transform='translateY(26px)';
     nd.style.transition='opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1)';
   });
-  function show(nd,i){ nd.style.transitionDelay=(i%3)*90+'ms'; nd.style.opacity='1'; nd.style.transform='none'; }
-  if(!('IntersectionObserver' in window)){ nodes.forEach(show); return; }
+  if(!('IntersectionObserver' in window)){ rv.forEach(show); return; }
   var io=new IntersectionObserver(function(es){
-    es.forEach(function(e){ if(!e.isIntersecting) return; show(e.target,nodes.indexOf(e.target)); io.unobserve(e.target); });
+    es.forEach(function(e){ if(!e.isIntersecting||e.target.dataset.revealed) return; show(e.target,rv.indexOf(e.target)); io.unobserve(e.target); });
   },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
-  nodes.forEach(function(nd){ io.observe(nd); });
+  rv.forEach(function(nd){ io.observe(nd); });
+  requestAnimationFrame(function(){ rv.forEach(function(nd,i){ if(!nd.dataset.revealed&&inView(nd)) show(nd,i); }); });
+  setTimeout(function(){ rv.forEach(function(nd,i){ if(getComputedStyle(nd).opacity!=='0') return; if(!inView(nd)) return; nd.style.transition='none'; show(nd,i); }); },2000);
 })();
 </script>
 </body>
